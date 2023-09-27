@@ -5,7 +5,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 
 export const Navbar = () => {
   return (
-    <div className='flex items-center gap-40 justify-center py-4 border-b-2 sticky top-0 left-0 w-full bg-white'>
+    <div className='flex items-center gap-40 justify-center py-4 border-b-2 sticky top-0 left-0 w-full bg-white z-[999]'>
       <div>
         <Link to="/" className='font-bold text-3xl'>Clothly.</Link>
       </div>

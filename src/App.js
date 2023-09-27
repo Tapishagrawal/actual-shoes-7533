@@ -7,8 +7,8 @@ import { Footer } from './Footer/Footer';
 function App() {
   return (
     <div className="App">
-      {/* <Navbar />
-      <MainRoutes /> */}
+      <Navbar />
+      <MainRoutes />
       <Footer/>
     </div>
   );

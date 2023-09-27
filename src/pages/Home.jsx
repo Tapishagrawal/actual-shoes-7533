@@ -4,7 +4,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import jacket1 from "../images/jacket-1.png"
 import { Link } from 'react-router-dom';
 import { motion } from "framer-motion"
-import ReviewSlider from '../components/ReviewSlider';
+import Slider from '../components/Slider';
 export const Home = () => {
     return (
         <>
@@ -42,9 +42,9 @@ export const Home = () => {
                 </motion.div>
             </div>
 
-            <div>
-                <h1>POPULAR PRODUCTS</h1>
-                <ReviewSlider/>
+            <div className='mt-20'>
+                <h1 className='-mb-20 ml-10 text-3xl font-bold'>POPULAR PRODUCTS</h1>
+                <Slider/>
             </div>
         </>
     )
