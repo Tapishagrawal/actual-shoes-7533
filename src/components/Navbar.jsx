@@ -16,6 +16,7 @@ export const Navbar = () => {
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
         <Link to="/sale">Sale</Link>
+        <Link to="/login">Login</Link>
       </div>
       <div className='flex items-center gap-8 '>
         <div className='border border-neutral-400 hover:border-blue-600 w-[14.5rem] flex items-center rounded outline-none py-1 px-2'>
