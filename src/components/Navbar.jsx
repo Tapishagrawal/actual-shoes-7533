@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { HiOutlineSearch } from "react-icons/hi";
+import { HiOutlineSearch} from "react-icons/hi";
 import { AiOutlineHeart } from "react-icons/ai";
 
 export const Navbar = () => {
