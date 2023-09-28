@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Link, useLocation } from 'react-router-dom';
 import { HiOutlineSearch } from "react-icons/hi";
+
 import { AiOutlineHeart } from "react-icons/ai";
 
 export const Navbar = () => {
@@ -18,6 +20,7 @@ export const Navbar = () => {
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
         <Link to="/sale">Sale</Link>
+        <Link to="/login">Login</Link>
       </div>
       <div className='flex items-center gap-8 '>
         {location.pathname !== "/" &&
