@@ -21,9 +21,9 @@ export const MainRoutes = () => {
 
       {/* <Route path="/login" element={<Login/>} /> */}
       <Route path="/admin" element={
-        <PrivateRoute>
+        // <PrivateRoute>
           <Admin/>
-        </PrivateRoute>
+        // </PrivateRoute>
       } />      
 
       <Route path="/*" element={<h1>Page not Exist</h1>} />
