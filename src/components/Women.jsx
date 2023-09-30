@@ -8,7 +8,7 @@ import { getProducts } from "../redux/Women/action";
 
 export const Women = () => {
   const dispatch = useDispatch();
-  const products = useSelector((store) => store.menReducer.products);
+  const products = useSelector((store) => store.womenReducer.products);
   const [searchParams]=useSearchParams();
   const paramObj={
     params:{
