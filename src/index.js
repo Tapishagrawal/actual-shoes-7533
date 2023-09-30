@@ -13,12 +13,13 @@ import LoginPageContextProvider from './Context/LoginPageContextProvider';
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <LoginPageContextProvider>
-  <ChakraProvider>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <ChakraProvider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </ChakraProvider>
   </LoginPageContextProvider>
 );
 
