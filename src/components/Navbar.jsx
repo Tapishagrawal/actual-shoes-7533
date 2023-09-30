@@ -21,6 +21,7 @@ export const Navbar = () => {
         <Link to="/winter">Winter</Link>
         <Link to="/sale">Sale</Link>
         <Link to="/login">Login</Link>
+        <Link to="/admin">Admin</Link>
       </div>
       <div className='flex items-center gap-8 '>
         {location.pathname !== "/" &&
