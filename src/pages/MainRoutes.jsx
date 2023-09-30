@@ -19,7 +19,7 @@ export const MainRoutes = () => {
 
       <Route path="/women" element={<Women/>} />
 
-      <Route path="/login" element={<Login/>} />
+      {/* <Route path="/login" element={<Login/>} /> */}
       <Route path="/admin" element={
         <PrivateRoute>
           <Admin/>

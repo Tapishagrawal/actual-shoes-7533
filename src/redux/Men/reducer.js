@@ -1,4 +1,4 @@
-import { GET_REQUEST, GET_REQUEST_FAILURE, GET_REQUEST_SUCCESS } from "../actionType"
+import { GET_REQUEST, GET_REQUEST_FAILURE, GET_REQUEST_SUCCESS, TOGGLE_WISHLIST_SUCCESS } from "../actionType"
 
 const initialState = {
     isLoading: false,
@@ -8,13 +8,17 @@ const initialState = {
 export const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_REQUEST: {
-            return {...state,isLoading:true}
+            return { ...state, isLoading: true }
         }
         case GET_REQUEST_FAILURE: {
-            return {...state, isLoading:false,isError:true}
+            return { ...state, isLoading: false, isError: true }
         }
         case GET_REQUEST_SUCCESS: {
-            return {...state, isLoading:false,isError:false,products:payload}
+            return { ...state, isLoading: false, isError: false, products: payload }
+        }
+        case TOGGLE_WISHLIST_SUCCESS: {
+            const updateData = state.map(product => product.id === +payload.id ? { ...product, wishList: payload.wishList } : product)
+            return {...state, products:updateData}
         }
         default: {
             return state
