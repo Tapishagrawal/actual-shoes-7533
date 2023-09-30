@@ -88,7 +88,6 @@ export const Navbar = () => {
               onChange={handleChange}
             />
             <div onClick={handleSubmit}>
-
               <HiOutlineSearch className="h-5 w-5 text-zinc-700 cursor-pointer" />
             </div>
           </div>
