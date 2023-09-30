@@ -11,9 +11,11 @@ import "./Slider.css";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
+import { Link, useLocation } from "react-router-dom";
 export const ProductCard = ({ brand, category, image, gender, id, price }) => {
   const [swiperRef, setSwiperRef] = useState(null);
-
+  const location = useLocation();
+  // console.log(location.pathname)
   return (
     <div style={{ width: "94%", margin: "auto" }}>
       <div className="group h-[20.5rem] w-[15rem] relative p-2 border  rounded-md shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden">
@@ -21,11 +23,31 @@ export const ProductCard = ({ brand, category, image, gender, id, price }) => {
           <AiOutlineHeart />
         </motion.span>
         <div className="w-[90%] m-auto overflow-hidden">
-          <img width={"100%"} className="text-center rounded" src={image} alt={brand} />
+          {location.pathname == "/men" ? (
+            <Link to={`/singleProductMen/${id}`}>
+              <img
+                width={"100%"}
+                className="text-center rounded"
+                src={image}
+                alt={brand}
+              />
+            </Link>
+          ) : (
+            <Link to={`/singleProductWomen/${id}`}>
+              <img
+                width={"100%"}
+                className="text-center rounded"
+                src={image}
+                alt={brand}
+              />
+            </Link>
+          )}
         </div>
         <div className="flex items-center justify-between px-2 mt-2">
           <div>
-            <p className="font-semibold">{brand} {category}</p>
+            <p className="font-semibold">
+              {brand} {category}
+            </p>
             <p className="font-medium">&#x20B9;{price}</p>
           </div>
           <div className="p-2 cursor-pointer rounded-full hover:bg-black hover:text-white transition duration-300 shadow-[0_8px_24px_rgba(149,157,165,0.2)]">
