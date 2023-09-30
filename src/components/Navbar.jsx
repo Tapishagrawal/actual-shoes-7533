@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+
+import React, { useContext, useEffect, useState } from 'react'
+
+
 
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineSearch } from "react-icons/hi";
 
 import { AiOutlineHeart } from "react-icons/ai";
+
+import { LoginPageContext } from '../Context/LoginPageContextProvider';
 import { useDispatch } from "react-redux";
 import { getProducts } from "../redux/Women/action";
-// import { getProducts } from "../redux/Men/action";
+import { getProducts } from "../redux/Men/action";
+
+export const Navbar = () => {
+  const location = useLocation();
+  const { handleToggleLoginPage } = useContext(LoginPageContext)
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || null);
+  const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
+
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('currentUser');
+  };
+
+  useEffect(()=>{
+  
+  },[users])
+
 
 export const Navbar = () => {
   const location = useLocation();
@@ -46,6 +68,13 @@ export const Navbar = () => {
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
         <Link to="/sale">Sale</Link>
+      </div>
+      <div className='flex items-center gap-5 '>
+        {location.pathname !== "/" &&
+          <div className='border border-neutral-400 hover:border-blue-600 w-[13rem] flex items-center rounded outline-none py-1 px-1'>
+            <input type="text" className='outline-none' />
+            <div className='-ml-5'>
+
         <Link to="/login">Login</Link>
         <Link to="/admin">Admin</Link>
       </div>
@@ -59,6 +88,7 @@ export const Navbar = () => {
               onChange={handleChange}
             />
             <div onClick={handleSubmit}>
+
               <HiOutlineSearch className="h-5 w-5 text-zinc-700 cursor-pointer" />
             </div>
           </div>
@@ -67,12 +97,18 @@ export const Navbar = () => {
         <div>
           <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
         </div>
-        <div className="flex items-center gap-2 cursor-pointer">
+        <div className='flex items-center gap-1 cursor-pointer'>
           <p>Cart</p>
           <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
             0{/*This have to be dynamic value*/}
           </span>
         </div>
+        {
+          user ?   
+          <Link onClick={handleLogout} className='bg-black text-white px-3 py-1 rounded'>Logout</Link>
+          :
+          <Link onClick={handleToggleLoginPage} className='bg-black text-white px-3 py-1 rounded'>Login</Link>
+        }
       </div>
     </div>
   );

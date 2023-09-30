@@ -21,7 +21,7 @@ export const ProductCard = ({ brand, category, image, gender, id, price }) => {
           <AiOutlineHeart />
         </motion.span>
         <div className="w-[90%] m-auto overflow-hidden">
-          <img width={"100%"} className="text-center" src={image} alt="fgdg" />
+          <img width={"100%"} className="text-center rounded" src={image} alt={brand} />
         </div>
         <div className="flex items-center justify-between px-2 mt-2">
           <div>
