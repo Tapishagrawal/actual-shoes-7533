@@ -8,6 +8,7 @@ import { Women } from "../components/Women";
 import { Login } from "./Login";
 import { Admin } from "./Admin";
 import { PrivateRoute } from "../components/PrivateRoute";
+import { Payment } from "../components/Payment";
 
 
 
@@ -25,6 +26,8 @@ export const MainRoutes = () => {
           <Admin/>
         </PrivateRoute>
       } />      
+
+      <Route path="/payment" element={<Payment/>}/>
 
       <Route path="/*" element={<h1>Page not Exist</h1>} />
     </Routes>
