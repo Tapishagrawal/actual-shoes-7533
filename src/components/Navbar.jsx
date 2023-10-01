@@ -56,6 +56,11 @@ export const Navbar = () => {
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
         <Link to="/sale">Sale</Link>
+
+        <Link to="/login">Login</Link>
+        <Link to="/payment">Payment</Link>
+
+
       </div>
       <div className="flex items-center gap-5 ">
         <div className="flex items-center gap-8">
