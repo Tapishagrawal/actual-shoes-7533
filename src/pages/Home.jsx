@@ -150,7 +150,7 @@ export const Home = () => {
 
             {/* Product Slider Start */}
             <div className='mt-20'>
-                <h1 className='-mb-20 ml-10 text-3xl font-bold'>POPULAR PRODUCTS</h1>
+                <h1 className='-mb-20 ml-10 text-3xl font-bold'>NEW ARRIVALS</h1>
                 <Slider />
             </div>
             {/* Product Slider End */}

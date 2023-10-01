@@ -8,7 +8,11 @@ import { Women } from "../components/Women";
 import { Login } from "./Login";
 import { Admin } from "./Admin";
 import { PrivateRoute } from "../components/PrivateRoute";
+
 import { Payment } from "../components/Payment";
+
+import { SingleProduct } from "../components/SingleProduct";
+
 
 
 
@@ -19,12 +23,14 @@ export const MainRoutes = () => {
       <Route path="/men" element={<Men/>} />
 
       <Route path="/women" element={<Women/>} />
+      <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
+      <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
 
-      <Route path="/login" element={<Login/>} />
+      {/* <Route path="/login" element={<Login/>} /> */}
       <Route path="/admin" element={
-        <PrivateRoute>
+        // <PrivateRoute>
           <Admin/>
-        </PrivateRoute>
+        // </PrivateRoute>
       } />      
 
       <Route path="/payment" element={<Payment/>}/>

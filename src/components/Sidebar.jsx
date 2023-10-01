@@ -65,7 +65,7 @@ export const Sidebar = () => {
 
   return (
     <DIV>
-      <h1>FILTERS</h1>
+      <h1>FILTE&#x20B9;</h1>
       <hr className="hr_line" />
       {/* Filter by Category starts  */}
       <h3 className="filter_heading">CATEGORIES</h3>
@@ -173,7 +173,7 @@ export const Sidebar = () => {
             onChange={handlePrice}
             checked={lowPrice.includes("500")}
           />
-          <span>Rs 999 to Rs 1999</span>
+          <span>&#x20B9; 999 to &#x20B9; 1999</span>
         </div>
         <div>
           <input
@@ -182,7 +182,7 @@ export const Sidebar = () => {
             onChange={handlePrice}
             checked={lowPrice.includes("1999")}
           />
-          <span>Rs 1999 to Rs 2999</span>
+          <span>&#x20B9; 1999 to &#x20B9; 2999</span>
         </div>
         <div>
           <input
@@ -191,7 +191,7 @@ export const Sidebar = () => {
             onChange={handlePrice}
             checked={lowPrice.includes("2999")}
           />
-          <span>Rs 2999 to Rs 3999</span>
+          <span>&#x20B9; 2999 to &#x20B9; 3999</span>
         </div>
         <div>
           <input
@@ -200,7 +200,7 @@ export const Sidebar = () => {
             onChange={handlePrice}
             checked={lowPrice.includes("3999")}
           />
-          <span>Rs 3999 to Rs 4999</span>
+          <span>&#x20B9; 3999 to &#x20B9; 4999</span>
         </div>
         <div>
           <input
@@ -209,7 +209,7 @@ export const Sidebar = () => {
             onChange={handlePrice}
             checked={lowPrice.includes("4999")}
           />
-          <span>Rs 4999 to Rs 5999</span>
+          <span>&#x20B9; 4999 to &#x20B9; 5999</span>
         </div>
       </div>
       <hr className="hr_line" />
