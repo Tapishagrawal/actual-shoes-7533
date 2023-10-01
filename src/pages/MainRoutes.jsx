@@ -25,8 +25,6 @@ export const MainRoutes = () => {
       <Route path="/women" element={<Women/>} />
       <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
       <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
-
-      {/* <Route path="/login" element={<Login/>} /> */}
       <Route path="/admin" element={
         // <PrivateRoute>
           <Admin/>

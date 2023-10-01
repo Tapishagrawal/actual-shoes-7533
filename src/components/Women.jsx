@@ -4,7 +4,7 @@ import { ProductCard } from "./ProductCard";
 import { Sidebar } from "./Sidebar";
 import { useSearchParams } from "react-router-dom";
 import { Box } from "@chakra-ui/layout";
-import { getProducts } from "../redux/Women/action";
+import { getProducts, toggleWishList } from "../redux/Women/action";
 
 export const Women = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,9 @@ export const Women = () => {
       price_lte: searchParams.getAll("highPrice"),
     }
   }
+  const handleToggleWishList = (id,wishList) => {
+    dispatch(toggleWishList(id,!wishList));
+  }
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [searchParams]);
@@ -26,7 +29,7 @@ export const Women = () => {
       <Sidebar />
       <Box style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",width:"80%",gap:"10px"}}>
         {products?.length > 0 &&
-          products.map((item) => <ProductCard key={item.id} {...item} />)}
+          products.map((item) => <ProductCard key={item.id} {...item} handleToggleWishList={handleToggleWishList} />)}
       </Box>
     </Box>
   );
