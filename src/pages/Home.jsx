@@ -15,7 +15,7 @@ export const Home = () => {
     return (
         <>
             {/* Hero Section Start */}
-            <section className='flex gap-4 max-[671px]:flex-col-reverse items-center justify-between flex-wrap mt-20 px-10'>
+            <section className='flex gap-4 max-[671px]:gap-10 max-[671px]:flex-col-reverse items-center justify-between flex-wrap mt-20 px-10'>
                 <motion.div
                     initial={{ opacity: 0, x: -100 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -58,20 +58,20 @@ export const Home = () => {
                     <h4 className='font-bold'>#2023</h4>
                 </div>
 
-                <div className='flex justify-between items-center px-28 '>
+                <div className='flex justify-between items-center pl-28 max-[500px]:pl-0 max-[950px]:gap-20 max-[769px]:gap-5 max-[769px]:pl-14 max-[500px]:flex-col'>
                     <div className='w-[300px]'>
                         <img width={"100%"} src={heroLeftImg} alt="model images" />
                     </div>
                     <div>
-                        <div className='relative flex flex-col items-center justify-center border-2 border-black w-[13rem] h-[17rem] rounded-full'>
-                            <div className='absolute -top-3 -right-3 hover:-top-4 hover:-right-4 transition-all cursor-pointer bg-black text-white text-[0.8rem] py-5 p-4 rounded-full'>Explore <br />More</div>
-                            <h1 className='text-5xl font-semibold mt-17'>25<span className='text-base'>%</span><span className='text-3xl'>off</span></h1>
-                            <p className='font-semibold my-2 mb-10'>out all new-arrivals</p>
+                        <div className='relative flex flex-col items-center justify-center border-2 border-black rounded-full w-[13rem] h-[17rem] max-[950px]:w-[10rem] max-[950px]:h-[13rem] max-[769px]:w-[9rem] max-[600px]:w-[6rem] max-[600px]:h-[10rem] max-[500px]:w-[13rem] max-[500px]:h-[17rem]'>
+                            <div className='absolute -top-3 -right-3 hover:-top-4 hover:-right-4 transition-all cursor-pointer bg-black text-white text-[0.8rem] py-5 p-4 rounded-full max-[600px]:text-[0.5rem] max-[600px]:py-4'>Explore <br />More</div>
+                            <h1 className='text-5xl font-semibold mt-17 max-[950px]:text-4xl max-[950px]:mt-14 max-[600px]:text-2xl max-[600px]:mt-8 max-[500px]:text-6xl'>25<span className='text-base max-[500px]:text-xl'>%</span><span className='text-3xl max-[600px]:text-xl max-[500px]:text-4xl'>off</span></h1>
+                            <p className='font-semibold my-2 mb-10 max-[950px]:mb-5 max-[950px]:text-sm max-[769px]:text-[0.7rem] max-[600px]:text-[0.5rem] max-[600px]:my-0 max-[500px]:text-lg max-[500px]:'>out all new-arrivals</p>
                             <span><PiStarFourFill /></span>
                         </div>
                     </div>
                     <div className='w-[400px]'>
-                        <img width={"100%"} src={heroRightImg} alt="model images" />
+                        <img className='w-full' src={heroRightImg} alt="model images" />
                     </div>
                 </div>
             </section>
@@ -85,38 +85,38 @@ export const Home = () => {
             {/* Product Slider End */}
 
             {/* About Material Start */}
-            <section className='flex items-center justify-around px-10 gap-9 mt-20'>
+            <section className='flex items-center justify-around px-10 gap-9 mt-20 max-[637px]:flex-col'>
                 <div>
                     <div>
-                        <h1 className='text-7xl font-bold'>WE THINK</h1>
+                        <h1 className='text-7xl font-bold max-[820px]:text-5xl max-[637px]:text-6xl'>WE THINK</h1>
                         <div className='flex items-center gap-2'>
-                            <h1 className='text-7xl font-bold'> YOU'LL</h1>
-                            <h3 className='text-xl font-bold'>LIKE THESE</h3>
+                            <h1 className='text-7xl font-bold max-[820px]:text-5xl max-[637px]:text-6xl'> YOU'LL</h1>
+                            <h3 className='text-xl font-bold max-[820px]:text-lg max-[637px]:text-xl'>LIKE THESE</h3>
                         </div>
                     </div>
-                    <p className='mt-7 mb-16 leading-8 text-zinc-600'>Fashion is a form of self-expression and autonomy at a <br />
+                    <p className='mt-7 mb-16 leading-8 text-zinc-600 max-[820px]:text-[0.9rem] max-[820px]:mb-7 max-[637px]:text-base max-[637px]:leading-8 max-[425px]:text-sm max-[425px]:font-medium max-[425px]:leading-7'>Fashion is a form of self-expression and autonomy at a <br />
                         particular period and place and in a specific context, of <br />
                         clothing, footwear, lifestyle, accessories. The latest<br />
                         fashion news, beauty coverage, celebrity style.
                     </p>
-                    <div className='flex gap-5 items-center'>
+                    <div className='flex gap-5 items-center max-[425px]:flex-col max-[425px]:items-start max-[425px]:ml-16'>
                         <div className='flex items-center gap-3'>
                             <div className='border border-zinc-400 p-4 rounded-full'><PiStarFourFill className='h-2 w-2' /></div>
                             <div>
-                                <h3 className='font-semibold'>Care instructions</h3>
-                                <p className='text-sm'>Machine wash at 30ºC</p>
+                                <h3 className='font-semibold max-[820px]:text-[0.8rem] max-[637px]:text-base'>Care instructions</h3>
+                                <p className='text-sm max-[820px]:text-[0.7rem] max-[637px]:text-sm'>Machine wash at 30ºC</p>
                             </div>
                         </div>
                         <div className='flex items-center gap-3'>
                             <div className='border border-zinc-400 p-4 rounded-full'><PiStarFourFill className='h-2 w-2' /></div>
                             <div>
-                                <h3 className='font-semibold'>Fabric material</h3>
-                                <p className='text-sm'>84% cotton, 16% polyester</p>
+                                <h3 className='font-semibold max-[820px]:text-[0.8rem] max-[637px]:text-base'>Fabric material</h3>
+                                <p className='text-sm max-[820px]:text-[0.7rem] max-[637px]:text-sm'>84% cotton, 16% polyester</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='w-[40%]'>
+                <div className='w-[40%] max-[637px]:w-[80%] max-[425px]:w-full'>
                     <img width={"100%"} src={materialSectionImg} alt="clother images" />
                 </div>
             </section>
@@ -124,7 +124,7 @@ export const Home = () => {
 
             {/* inspiration section Start */}
             <section className='mt-20'>
-                <div className='flex items-center justify-around'>
+                <div className='flex flex-col items-center justify-center'>
                     <h2 className='text-4xl font-bold'>
                         Outfit inspiration <br />
                         Snag their style
@@ -141,9 +141,10 @@ export const Home = () => {
                         leading European online platform.
                     </p>
                 </div>
-                <div className='text-center my-20 mb-30 relative'>
-                    <h1 className='text-8xl font-bold '>STAY AHAD OF <br /> THE WORLD</h1>
-                    <img className='w-[320px] absolute -top-1 left-[38%] sm:left-[28%] sm:-top-20 md:-top-16 md:left-[28%] 2xl:-left-[15%]' src={inspectionImg} alt="" />
+                <div className='text-center my-28 mb-30 relative'>
+                    <h1 className='text-8xl font-bold max-[710px]:text-6xl max-[440px]:text-4xl'>STAY AHAD OF <br /> THE WORLD</h1>
+                    <img className='w-[320px] max-[710px]:w-[200px] max-[710px]:left-[38%] max-[710px]:-top-10 max-[945px]:left-[30%] absolute -top-20 left-[38%]
+                    max-[440px]:left-[32%] max-[440px]:-top-5 max-[440px]:w-[120px]' src={inspectionImg} alt="" />
                 </div>
             </section>
             {/* inspiration section End */}
