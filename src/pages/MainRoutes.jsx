@@ -9,6 +9,11 @@ import { Login } from "./Login";
 import { Admin } from "./Admin";
 import { PrivateRoute } from "../components/PrivateRoute";
 
+import { Payment } from "../components/Payment";
+
+import { SingleProduct } from "../components/SingleProduct";
+
+
 
 
 export const MainRoutes = () => {
@@ -18,13 +23,15 @@ export const MainRoutes = () => {
       <Route path="/men" element={<Men/>} />
 
       <Route path="/women" element={<Women/>} />
-
-      {/* <Route path="/login" element={<Login/>} /> */}
+      <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
+      <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
       <Route path="/admin" element={
         // <PrivateRoute>
           <Admin/>
         // </PrivateRoute>
       } />      
+
+      <Route path="/payment" element={<Payment/>}/>
 
       <Route path="/*" element={<h1>Page not Exist</h1>} />
     </Routes>

@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       {isLoginPageVisibaleVisible && <Login/>}
       <MainRoutes />
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
