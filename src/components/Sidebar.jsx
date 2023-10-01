@@ -52,7 +52,6 @@ export const Sidebar = () => {
     setLowPrice(newLowPrice);
     setHighPrice(newHighPrice);
   };
-  console.log(lowPrice,highPrice)
   useEffect(() => {
     const params = {
       category,
