@@ -102,4 +102,41 @@ h1{
 .subContainer h3{
     margin-bottom: 2rem;
 }
+/* mobile screen for small size */
+@media screen and (max-width: 475px) {
+.privacy{
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+    color: rgb(86, 75, 75);
+}
+.container{
+    display: flex;
+    flex-direction:column;
+    text-align: left;
+}
+.subContainer{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+}
+.second{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    margin:auto;
+}
+.first{
+    width: 100%;
+    margin-bottom:40px;
+}
+}
+/* mobile screen for medium size */
+@media screen and (min-width: 476px) and (max-width: 768px){
+    
+}
 `;
