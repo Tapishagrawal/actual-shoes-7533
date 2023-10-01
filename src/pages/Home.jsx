@@ -35,7 +35,7 @@ export const Home = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4 }}
                 >
-                    <h1 className='text-8xl max-[671px]:text-6xl font-semibold text-center max-[1150px]:text-6xl max-[950px]:text-4xl'>CLOTHES ARE <br /> THE <Link className='group'><HiArrowNarrowRight className='group-hover:pl-5 transition-all inline border-4 max-[950px]:border-2 border-black w-[9rem] max-[1150px]:w-[7rem] max-[950px]:w-[4rem] rounded-full' /></Link> SPIRIT <br /> OF FASHION</h1>
+                    <h1 className='text-8xl max-[671px]:text-6xl font-semibold text-center max-[1150px]:text-6xl max-[950px]:text-4xl max-[486px]:text-[2.4rem] max-[375px]:text-[2rem]'>CLOTHES ARE <br /> THE <Link className='group'><HiArrowNarrowRight className='group-hover:pl-5 transition-all inline border-4 max-[950px]:border-2 border-black w-[9rem] max-[1150px]:w-[7rem] max-[950px]:w-[4rem] max-[375px]:w-[3rem] rounded-full' /></Link> SPIRIT <br /> OF FASHION</h1>
                 </motion.div>
 
                 <motion.div className='flex flex-col items-center border border-black p-[1rem] px-[1.5rem] max-[950px]:px-[1rem] rounded-full'
@@ -50,8 +50,8 @@ export const Home = () => {
             </section>
 
             <section className='mt-20'>
-                <div className='flex items-center justify-between px-10 mb-5'>
-                    <div className='flex items-center gap-3'>
+                <div className='flex items-center justify-between px-5 lg:px-10 mb-5'>
+                    <div className='flex items-center gap-1 lg:gap-3'>
                         <h4 className='bg-black text-white py-[0.1rem] px-3 rounded-full'>01</h4>
                         <h4 className='border-2 border-black px-2 rounded-full font-medium'>MAN COLLECTION</h4>
                     </div>
@@ -70,8 +70,8 @@ export const Home = () => {
                             <span><PiStarFourFill /></span>
                         </div>
                     </div>
-                    <div className='w-[400px]'>
-                        <img className='w-full' src={heroRightImg} alt="model images" />
+                    <div className='w-full'>
+                        <img className='w-full max-[413px]:w-[90%]' src={heroRightImg} alt="model images" />
                     </div>
                 </div>
             </section>
@@ -123,9 +123,9 @@ export const Home = () => {
             {/* About Material End */}
 
             {/* inspiration section Start */}
-            <section className='mt-20'>
-                <div className='flex flex-col items-center justify-center'>
-                    <h2 className='text-4xl font-bold'>
+            <section className='mt-20 mx-2'>
+                <div className='flex flex-col sm:flex-row sm:justify-between mx-2 lg:mx-20 xl:mx-48 items-center justify-center'>
+                    <h2 className='text-4xl font-bold sm:text-3xl'>
                         Outfit inspiration <br />
                         Snag their style
                     </h2>
@@ -134,7 +134,7 @@ export const Home = () => {
                         <div className='bg-orange-300 w-6 h-6 -ml-1 rounded-full'></div>
                         <div className='bg-white border border-black w-6 h-6 -ml-1 rounded-full'></div>
                     </div>
-                    <p className='text-zinc-600 leading-7'>
+                    <p className='text-zinc-600 leading-7 sm:text-sm md:text-base'>
                         Open communication and participation <br />
                         are pivotal elements of our company <br />
                         culture. How a bold idea spawned a <br />
