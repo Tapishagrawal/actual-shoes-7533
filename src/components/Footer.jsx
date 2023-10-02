@@ -61,6 +61,7 @@ hr{
 }
 h3{
     font-size:large;
+    font-weight: 600;
 }
 h1{
     font-size:xx-large;
@@ -137,6 +138,40 @@ h1{
 }
 /* mobile screen for medium size */
 @media screen and (min-width: 476px) and (max-width: 768px){
-    
+    .second {
+        flex-wrap: wrap;
+    }
+    .first {
+        width: 100%;
+    }
+    .first p {
+        color: rgb(86, 75, 75);
+        width: 162%;
+    }
+    .privacy {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .container {
+        margin-left: 10%;
+    }
+    .subContainer {
+        margin-left: 37px;
+        width: 156px;
+    }
+    .second {
+        margin-left: 46px;
+        flex-wrap: wrap;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 856px){
+    .container {
+        margin-left: 0;
+    }
+    .subContainer {
+        margin-left: 15px;
+    }
 }
 `;

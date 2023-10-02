@@ -19,9 +19,6 @@ export const Women = () => {
       price_lte: searchParams.getAll("highPrice"),
     }
   }
-  const handleToggleWishList = (id,wishList) => {
-    dispatch(toggleWishList(id,!wishList));
-  }
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [searchParams]);
@@ -31,7 +28,7 @@ export const Women = () => {
       <Sidebar />
       <Box className="Box-2">
         {products?.length > 0 &&
-          products.map((item) => <ProductCard key={item.id} {...item} handleToggleWishList={handleToggleWishList} />)}
+          products.map((item) => <ProductCard key={item.id} {...item} />)}
       </Box>
     </Box>
     </DIV>
