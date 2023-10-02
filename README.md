@@ -67,7 +67,7 @@ Our robust Backend Server furnishes the application with essential data and func
 
 The masterpiece, CLOTHLY, now graces the digital horizon, courtesy of Vercel. Embark on your fashion odyssey by following this guiding star:
 
-**Vercel Link**: [clothly](https://clothly.vercel.app/)
+<h1><strong>Vercel Link:</strong> <a href="https://clothly.vercel.app/">clothly</a></h1>
 
 Explore the enchanting features, and should you encounter any challenges or wish to share your fashion insights, our "Reviews" page eagerly awaits your presence.
 
