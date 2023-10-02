@@ -16,7 +16,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSliderData } from '../redux/Slider/action';
 
-export default function Slider() {
+export default function NewArrivalSlider() {
     const [swiperRef, setSwiperRef] = useState(null);
     const products = useSelector(store => store.sliderReducer.sliderProducts)
     const dispatch = useDispatch()
@@ -38,7 +38,7 @@ export default function Slider() {
                 >
                     {
                         products.length > 0 &&
-                        products.slice(0,15).map((product) =>(
+                        products.slice(-15).reverse().map((product) =>(
                             <SwiperSlide>
                                 <div className='group h-[20.5rem] w-[15rem] relative p-2 border  rounded-md shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden'>
                                     <span className='group absolute bg-white p-2 rounded-full shadow-[0_8px_24px_rgba(149,157,165,0.4)] -right-10 cursor-pointer hover:text-orange-600 group-hover:right-2 transition-all duration-300'>

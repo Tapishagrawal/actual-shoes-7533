@@ -10,6 +10,7 @@ import heroLeftImg from "../images/heroLeftImg.png"
 import heroRightImg from "../images/heroRightImg.png"
 import materialSectionImg from "../images/materialSectionImg.png"
 import inspectionImg from "../images/inspectionImg.png"
+import NewArrivalSlider from '../components/NewArrivalSlider';
 
 export const Home = () => {
     return (
@@ -152,7 +153,7 @@ export const Home = () => {
             {/* Product Slider Start */}
             <div className='mt-20'>
                 <h1 className='-mb-20 ml-10 text-3xl font-bold'>NEW ARRIVALS</h1>
-                <Slider />
+                <NewArrivalSlider />
             </div>
             {/* Product Slider End */}
 
