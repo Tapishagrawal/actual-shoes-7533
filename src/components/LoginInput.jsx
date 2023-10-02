@@ -70,7 +70,6 @@ export const LoginInput = ({ onLogin, onSignup }) => {
         />
         <button onClick={handleLogin} className='bg-black text-white w-24 py-1 rounded'>Login</button>
         <p>Don't have an account? <button onClick={handleSignup} className='text-blue-600 text-sm'>Signup</button></p>
-        <button onClick={handleAdmin} className='border border-black p-1 rounded'>Login as Admin</button>
         {error && <p className='text-red-600'>{error}</p>}
       </div>
     </div>

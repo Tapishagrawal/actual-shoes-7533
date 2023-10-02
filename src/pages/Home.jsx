@@ -70,7 +70,7 @@ export const Home = () => {
                             <span><PiStarFourFill /></span>
                         </div>
                     </div>
-                    <div className='w-full'>
+                    <div className='w-[400px] max-[425px]:w-full'>
                         <img className='w-full max-[413px]:w-[90%]' src={heroRightImg} alt="model images" />
                     </div>
                 </div>
