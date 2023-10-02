@@ -31,11 +31,9 @@ export const reducer = (state = initialData, { type, payload }) => {
 
         }
 
-        // case DELETE_PROD_SUCC: {
-
-        //     return { ...state, adminProd: state.adminProd.filter((ele) => ele.id !== payload) }
-
-        // }
+        case DELETE_PROD_SUCC: {
+            return { ...state, adminProd: state.adminProd.filter((ele) => ele.id !== payload) }
+        }
         default:
             return state
     }
