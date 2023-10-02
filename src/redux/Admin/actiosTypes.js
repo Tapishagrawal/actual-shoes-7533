@@ -1,0 +1,7 @@
+export const GET_PROD_REQUEST = "GET_PROD_REQUEST"
+export const GET_PROD_SUCC = "GET_PROD_SUCC"
+export const GET_PROD_FAIL = "GET_PROD_FAIL"
+
+export const POST_PROD_SUCC = "POST_PROD_SUCC"
+export const DELETE_PROD_SUCC = "DELETE_PROD_SUCC"
+export const PATCH_PROD_SUCC = "PATCH_PROD_SUCC"
