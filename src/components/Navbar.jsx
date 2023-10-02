@@ -16,9 +16,7 @@ export const Navbar = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("currentUser")) || null
   );
-  const products = useSelector(store => store.menReducer.products);
-  const totalWishList = products.filter((item) => item.wishList).length
-  const countOfAddToCart = products.filter((item) => item.addToCart).length
+  const cardLocalDataCount = useSelector(store => store.localReducer.addCartData).length || 0
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -57,7 +55,7 @@ export const Navbar = () => {
           Clothly.
         </Link>
         <span onClick={handleMobileMenu} className="hidden max-[900px]:inline">
-          {isMobileMenuVisible ? <AiOutlineClose className="text-2xl"/> : <HiMenuAlt1 className="text-2xl" />}
+          {isMobileMenuVisible ? <AiOutlineClose className="text-2xl" /> : <HiMenuAlt1 className="text-2xl" />}
         </span>
       </div>
       <div className="flex items-center gap-7 max-[900px]:hidden">
@@ -80,14 +78,13 @@ export const Navbar = () => {
           {/* <Link to="/payment">Payment</Link> */}
           <div className="relative min-[426px]:hidden border-b pb-1">
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
-            <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">{totalWishList}</span>
+            <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
           </div>
 
           <div className="flex items-center gap-1 cursor-pointer min-[426px]:hidden border-b pb-1">
-          <Link to="/cart">Cart</Link>
-
+            <Link to="/cart">Cart</Link>
             <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
-              {countOfAddToCart}
+              {cardLocalDataCount}
             </span>
           </div>
           <div className="min-[426px]:hidden">
@@ -110,7 +107,7 @@ export const Navbar = () => {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          
+
         </div>
       </div>
       <div className="flex items-center gap-3 max-[426px]:hidden">
@@ -129,12 +126,12 @@ export const Navbar = () => {
         )}
         <div className="relative">
           <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
-          <span className="absolute -top-1 -right-2 bg-black text-white px-1 rounded-full text-[0.6rem]">{totalWishList}</span>
+          <span className="absolute -top-1 -right-2 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
         </div>
         <div className="flex items-center gap-1 cursor-pointer">
-          <p>Cart</p>
+          <Link to="/cart">Cart</Link>
           <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
-            {countOfAddToCart}
+            {cardLocalDataCount}
           </span>
         </div>
         <div>
