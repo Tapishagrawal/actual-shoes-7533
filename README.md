@@ -28,11 +28,6 @@ The Pricing Page unveils a treasure trove of pricing options, each meticulously 
 ![Screenshot 2023-10-02 200948](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/639a6260-8616-4be6-a179-b7345c7d3907)
 
 
-### 4. Reviews Page 💬
-Your voice is invaluable! The Reviews Page provides a platform for you to share your thoughts, suggestions, and feedback, empowering us to enhance your shopping experience.
-
-![Reviews Page](screens/reviews.png)
-
 ### 5. Login Page 🔐
 For our esteemed registered users, the Login Page serves as your gateway to an exclusive fashion experience. Enter your credentials to unlock a world of features and style.
 
