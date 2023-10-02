@@ -18,6 +18,7 @@ import Dashboard from "../components/Dashboard";
 import Products from "../components/Products";
 import Operations from "../components/Operations";
 import EditProduct from "../components/EditProduct";
+import Deshboard from "../components/Dashboard"
 
 export const MainRoutes = () => {
   return (
@@ -31,10 +32,10 @@ export const MainRoutes = () => {
       <Route path={"/wishList"} element={<WishList />} />
       <Route path={"/cart"} element={<Cart />} />
       <Route
-        path="/admin"
+        path="/deshboard"
         element={
           // <PrivateRoute>
-          <Admin />
+          <Deshboard />
           // </PrivateRoute>
         }
       />
