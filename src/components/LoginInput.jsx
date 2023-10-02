@@ -35,20 +35,6 @@ export const LoginInput = ({ onLogin, onSignup }) => {
     }
   };
 
-  const handleAdmin = () => {
-    if (username && password) {
-      const admin = {
-        username,
-        password
-      }
-      dispatch(login(admin)).then(() => {
-        navigate("/admin")
-      })
-    }
-    else {
-      setError('Please enter valid Admin Details');
-    }
-  }
 
   return (
     <div className=''>
