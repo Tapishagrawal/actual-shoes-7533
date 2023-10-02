@@ -83,8 +83,10 @@ export const Navbar = () => {
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
             <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">{totalWishList}</span>
           </div>
-          <div className="flex items-center gap-1 cursor-pointer min-[426px]:hidden">
-            <p>Cart</p>
+
+          <div className="flex items-center gap-1 cursor-pointer">
+          <Link to="/cart">Cart</Link>
+
             <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
               {countOfAddToCart}
             </span>
