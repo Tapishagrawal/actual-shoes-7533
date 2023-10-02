@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiOutlineSearch, HiMenuAlt1 } from "react-icons/hi";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
 import { LoginPageContext } from "../Context/LoginPageContextProvider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts as getWomenProducts } from "../redux/Women/action";
 import { getProducts as getMenProducts } from "../redux/Men/action";
-import { motion } from "framer-motion"
 
 export const Navbar = () => {
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false)
@@ -52,13 +51,13 @@ export const Navbar = () => {
   }
 
   return (
-    <div onClick={handleMobileMenu} className={`flex items-center justify-between px-3 py-4 border-b-2 sticky top-0 left-0 w-full bg-white z-[999]`}>
+    <div className={`flex items-center justify-between px-3 py-4 border-b-2 sticky top-0 left-0 w-full bg-white z-[999]`}>
       <div className="flex items-center justify-between max-[900px]:w-full  mr-5">
         <Link to="/" className="font-bold text-3xl">
           Clothly.
         </Link>
         <span onClick={handleMobileMenu} className="hidden max-[900px]:inline">
-          <HiMenuAlt1 className="text-2xl" />
+          {isMobileMenuVisible ? <AiOutlineClose className="text-2xl"/> : <HiMenuAlt1 className="text-2xl" />}
         </span>
       </div>
       <div className="flex items-center gap-7 max-[900px]:hidden">
@@ -79,12 +78,12 @@ export const Navbar = () => {
           <Link className="border-b" to="/winter">Winter</Link>
           <Link className="border-b" to="/sale">Sale</Link>
           {/* <Link to="/payment">Payment</Link> */}
-          <div className="relative min-[426px]:hidden">
+          <div className="relative min-[426px]:hidden border-b pb-1">
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
             <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">{totalWishList}</span>
           </div>
 
-          <div className="flex items-center gap-1 cursor-pointer">
+          <div className="flex items-center gap-1 cursor-pointer min-[426px]:hidden border-b pb-1">
           <Link to="/cart">Cart</Link>
 
             <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">

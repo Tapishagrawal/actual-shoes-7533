@@ -10,3 +10,20 @@ body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+html::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+}
+
+html::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background color */
+}
+
+html::-webkit-scrollbar-thumb {
+    background: #b77d3e9c; /* Color of the scrollbar handle */
+    border-radius: 6px; /* Rounded corners */
+    border: 3px solid #f1f1f1;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #e3a0589c;
+}
