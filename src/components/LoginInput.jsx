@@ -14,7 +14,7 @@ export const LoginInput = ({ onLogin, onSignup }) => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     const user = storedUsers.find(u => u.username === username && u.password === password);
     if(username==="admin@gmail.com" && password==="1234"){
-      return navigate("/admin")
+      return navigate("/dashboard")
     }
     if (user) {
       onLogin(user);

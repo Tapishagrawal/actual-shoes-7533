@@ -64,7 +64,6 @@ export const Navbar = () => {
         <Link to="/women">Women</Link>
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
-        <Link to="/sale">Sale</Link>
         {/* <Link to="/payment">Payment</Link> */}
       </div>
       <div className="relative min-[900px]:hidden">
@@ -74,7 +73,6 @@ export const Navbar = () => {
           <Link className="border-b" to="/women">Women</Link>
           <Link className="border-b" to="/accessories">Accessories</Link>
           <Link className="border-b" to="/winter">Winter</Link>
-          <Link className="border-b" to="/sale">Sale</Link>
           {/* <Link to="/payment">Payment</Link> */}
           <Link to="/wishList" className="relative min-[426px]:hidden border-b pb-1">
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
