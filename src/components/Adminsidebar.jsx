@@ -9,10 +9,10 @@ const Adminsidebar = () => {
     <h1>Admin</h1>
     </div>
     <div>
-    <Link>Dashboard</Link>
-    <Link>Users</Link>
-    <Link>Products</Link>
-    <Link>Operations</Link>
+    <Link to="/dashboard">Dashboard</Link>
+    <Link to = "/products/:id/edit">EditProduct</Link>
+    <Link to="/products">Products</Link>
+    <Link to="/operations">Add Product</Link>
     </div>
 
     </div>
