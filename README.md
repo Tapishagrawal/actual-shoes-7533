@@ -13,6 +13,7 @@ The Home Page, our digital canvas, presents an enchanting tapestry of fashion. H
 
 ### 2. Collection Page 🌐
 Prepare to be spellbound by our meticulously curated collection on the Collection Page, where you can explore an array of styles, colors, and sizes. Immerse yourself in detailed descriptions to help you find the perfect fit for your fashion statement.
+
 **Men Collection**
 
 ![Screenshot 2023-10-02 200515](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/70c52218-bdee-45b1-8a35-fafe08e7edc7)
