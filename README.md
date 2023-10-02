@@ -1,6 +1,6 @@
-# Welcome to Actual Shoes-7533
+# Welcome to CLOTHLY
 
-**Actual Shoes-7533** welcomes you to a world of high fashion and unparalleled style. Our meticulously crafted web application is a masterpiece, meticulously designed with a harmonious blend of HTML, CSS, JavaScript, and React, inviting you to embark on a journey into the very heart of fashion. While our name may evoke images of footwear, we transcend mere shoes, offering an exquisite collection of attire that defines style itself. Explore our digital realm, from the captivating frontend pages to the robust backend server, all elegantly culminating in the ethereal live version hosted gracefully on Netlify.
+**CLOTHLY** welcomes you to a world of high fashion and unparalleled style. Our meticulously crafted web application is a masterpiece, meticulously designed with a harmonious blend of HTML, CSS, JavaScript, and React, inviting you to embark on a journey into the very heart of fashion. While our name may evoke images of footwear, we transcend mere shoes, offering an exquisite collection of attire that defines style itself. Explore our digital realm, from the captivating frontend pages to the robust backend server, all elegantly culminating in the ethereal live version hosted gracefully on Netlify.
 
 ## 🌟 Frontend Pages
 
@@ -38,7 +38,7 @@ Reserved for a select few, the Admin Page empowers authorized personnel with adm
 
 ## 🚀 Tech Stacks
 
-The foundation of Actual Shoes-7533 is meticulously constructed with:
+The foundation of CLOTHLY is meticulously constructed with:
 
 - **HTML**: The cornerstone, providing the structure for our digital creation.
 - **CSS**: The artist's brush, adding finesse and elegance to the user interface.
@@ -62,12 +62,12 @@ Our robust Backend Server furnishes the application with essential data and func
 
 ## 🌐 Deployment
 
-The masterpiece, Actual Shoes-7533, now graces the digital horizon, courtesy of Netlify. Embark on your fashion odyssey by following this guiding star:
+The masterpiece, CLOTHLY, now graces the digital horizon, courtesy of Vercel. Embark on your fashion odyssey by following this guiding star:
 
 **Vercel Link**: [clothly](https://clothly.vercel.app/)
 
 Explore the enchanting features, and should you encounter any challenges or wish to share your fashion insights, our "Reviews" page eagerly awaits your presence.
 
-We extend our deepest gratitude for choosing Actual Shoes-7533. May your journey with us be a symphony of style and elegance. If you have any inquiries or require fashion assistance, our dedicated support team stands poised to serve.
+We extend our deepest gratitude for choosing CLOTHLY. May your journey with us be a symphony of style and elegance. If you have any inquiries or require fashion assistance, our dedicated support team stands poised to serve.
 
-**Step into the world of style with Actual Shoes-7533!** 👗🌉
+**Step into the world of style with CLOTHLY!** 👗🌉
