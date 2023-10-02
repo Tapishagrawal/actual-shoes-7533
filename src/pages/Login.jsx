@@ -10,8 +10,6 @@ export const Login = () => {
   const { handleToggleLoginPage } = useContext(LoginPageContext)
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || null);
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem('users')) || []);
-  const isAuth = useSelector(store => store.authReducer.isAuth);
-  const location = useLocation();
   const navigate = useNavigate()
 
   useEffect(() => {
