@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { PiBasketBold } from "react-icons/pi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
+// chakra modal imports
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,10 +13,25 @@ import "./Slider.css";
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 export const ProductCard = ({ brand, category, image, gender, id, price }) => {
-  const [swiperRef, setSwiperRef] = useState(null);
   const location = useLocation();
-  // console.log(location.pathname)
+  const [cart,setCart]=useState(JSON.parse(localStorage.getItem('cart')) || [])
+
+  const handleCart = () => {
+    // setCart((prev)=>[...prev,stor])
+    axios.get(`https://platecrafters-moke-api.onrender.com/allProducts/${id}`)
+    .then((res)=>{
+      // console.log(res.data);
+      setCart((prev)=>[...prev,res.data])
+      localStorage.setItem("cart",JSON.stringify(cart))
+    })
+  };
+  useEffect(()=>{
+   (localStorage.setItem("cart",JSON.stringify(cart)))
+  },[cart])
+
   return (
     <div style={{ width: "94%", margin: "auto" }}>
       <div className="group h-[20.5rem] w-[15rem] relative p-2 border  rounded-md shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden">
@@ -50,7 +66,10 @@ export const ProductCard = ({ brand, category, image, gender, id, price }) => {
             </p>
             <p className="font-medium">&#x20B9;{price}</p>
           </div>
-          <div className="p-2 cursor-pointer rounded-full hover:bg-black hover:text-white transition duration-300 shadow-[0_8px_24px_rgba(149,157,165,0.2)]">
+          <div
+            onClick={handleCart}
+            className="p-2 cursor-pointer rounded-full hover:bg-black hover:text-white transition duration-300 shadow-[0_8px_24px_rgba(149,157,165,0.2)]"
+          >
             <PiBasketBold />
           </div>
         </div>

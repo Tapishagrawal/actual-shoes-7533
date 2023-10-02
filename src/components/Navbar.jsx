@@ -76,7 +76,7 @@ export const Navbar = () => {
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
           </div>
           <div className="flex items-center gap-1 cursor-pointer">
-            <p>Cart</p>
+          <Link to="/cart">Cart</Link>
             <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
               0{/* This have to be dynamic value */}
             </span>

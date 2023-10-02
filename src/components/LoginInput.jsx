@@ -23,7 +23,7 @@ export const LoginInput = ({ onLogin, onSignup }) => {
 
   const handleSignup = () => {
     if (username && password) {
-      onSignup({ username, password });
+      onSignup({ username, password,cart:[],whishList:[] });
       setUsername('');
       setPassword('');
       setError('');

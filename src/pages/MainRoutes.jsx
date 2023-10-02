@@ -9,6 +9,7 @@ import { Login } from "./Login";
 import { Admin } from "./Admin";
 import { PrivateRoute } from "../components/PrivateRoute";
 import { SingleProduct } from "../components/SingleProduct";
+import { Cart } from "./Cart";
 
 
 
@@ -21,6 +22,7 @@ export const MainRoutes = () => {
       <Route path="/women" element={<Women/>} />
       <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
       <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
+      <Route path={"/cart"} element={<Cart/>}/>
 
       {/* <Route path="/login" element={<Login/>} /> */}
       <Route path="/admin" element={
