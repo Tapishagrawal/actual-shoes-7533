@@ -37,7 +37,7 @@ export const Login = () => {
       animate={{opacity:1}}
       className='bg-black/50 z-[999] backdrop-blur-lg fixed top-0 left-0 w-full h-full'></motion.div>
       <motion.div
-        className='fixed z-[999] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] backdrop-blur-2xl bg-blue-50/40 p-5 text-center  w-[380px]  rounded-md
+        className='fixed z-[999] top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] backdrop-blur-2xl bg-blue-50/70 p-5 text-center  w-[380px]  rounded-md
         '
         initial={{ opacity: 0, x: "-50%", y: "-50%", scale: 0 }}
         animate={{ opacity: 1, x: "-50%", y: "-50%", scale: 1 }}
