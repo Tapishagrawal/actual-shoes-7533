@@ -64,7 +64,7 @@ Our robust Backend Server furnishes the application with essential data and func
 
 The masterpiece, Actual Shoes-7533, now graces the digital horizon, courtesy of Netlify. Embark on your fashion odyssey by following this guiding star:
 
-**Vercel Link**: [https://sparkly-salamander-87a5f4.netlify.app/]([https://sparkly-salamander-87a5f4.netlify.app/](https://clothly.vercel.app/))
+**Vercel Link**: [clothly](https://clothly.vercel.app/)
 
 Explore the enchanting features, and should you encounter any challenges or wish to share your fashion insights, our "Reviews" page eagerly awaits your presence.
 
