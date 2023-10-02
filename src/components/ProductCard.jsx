@@ -13,13 +13,13 @@ import "swiper/css/navigation";
 import "./Slider.css";
 
 
-export const ProductCard = ({ name, brand, category, image, gender, id, price, quantity, sizes, handleAddcart }) => {
+export const ProductCard = ({ name, brand, category, image, gender, id, price, quantity, sizes, handleAddcart, handleAddInWishList }) => {
   const location = useLocation();
 
   return (
     <div style={{ width: "70%", margin: "auto", marginTop: "60px" }}>
       <div className="group h-[20.5rem] w-[15rem] relative p-2 border  rounded-md shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden">
-        <motion.span className={`group absolute bg-white p-2 rounded-full shadow-[0_8px_24px_rgba(149,157,165,0.4)] -right-10 cursor-pointer hover:text-orange-600 group-hover:right-2 transition-all duration-300`}>
+        <motion.span onClick={()=>handleAddInWishList({id,image, gender, brand, category, price, quantity, sizes, name})} className={`group absolute bg-white p-2 rounded-full shadow-[0_8px_24px_rgba(149,157,165,0.4)] -right-10 cursor-pointer hover:text-orange-600 group-hover:right-2 transition-all duration-300`}>
           <AiOutlineHeart />
         </motion.span>
         <div className="w-[90%] m-auto overflow-hidden">

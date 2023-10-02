@@ -76,10 +76,10 @@ export const Navbar = () => {
           <Link className="border-b" to="/winter">Winter</Link>
           <Link className="border-b" to="/sale">Sale</Link>
           {/* <Link to="/payment">Payment</Link> */}
-          <div className="relative min-[426px]:hidden border-b pb-1">
+          <Link to="/wishList" className="relative min-[426px]:hidden border-b pb-1">
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
             <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
-          </div>
+          </Link>
 
           <div className="flex items-center gap-1 cursor-pointer min-[426px]:hidden border-b pb-1">
             <Link to="/cart">Cart</Link>
@@ -124,10 +124,10 @@ export const Navbar = () => {
             </div>
           </div>
         )}
-        <div className="relative">
+        <Link to="/wishList" className="relative">
           <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
           <span className="absolute -top-1 -right-2 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
-        </div>
+        </Link>
         <div className="flex items-center gap-1 cursor-pointer">
           <Link to="/cart">Cart</Link>
           <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
