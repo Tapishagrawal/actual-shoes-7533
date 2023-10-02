@@ -1,25 +1,31 @@
 # Welcome to CLOTHLY
 
-**CLOTHLY** welcomes you to a world of high fashion and unparalleled style. Our meticulously crafted web application is a masterpiece, meticulously designed with a harmonious blend of HTML, CSS, JavaScript, and React, inviting you to embark on a journey into the very heart of fashion. While our name may evoke images of footwear, we transcend mere shoes, offering an exquisite collection of attire that defines style itself. Explore our digital realm, from the captivating frontend pages to the robust backend server, all elegantly culminating in the ethereal live version hosted gracefully on Netlify.
+**CLOTHLY** welcomes you to a world of high fashion and unparalleled style. Our meticulously crafted web application is a masterpiece, meticulously designed with a harmonious blend of HTML, CSS, JavaScript, and React, inviting you to embark on a journey into the very heart of fashion. While our name may evoke images of footwear, we transcend mere shoes, offering an exquisite collection of attire that defines style itself. Explore our digital realm, from the captivating frontend pages to the robust backend server, all elegantly culminating in the ethereal live version hosted gracefully on Vercel.
 
 ## 🌟 Frontend Pages
 
 ### 1. Home Page 🏡
-The Home Page, our digital canvas, presents an enchanting tapestry of fashion. Here, you'll discover an alluring overview of the latest trends, styles, and what makes fashion truly timeless.
+The Home Page, our digital canvas, presents an enchanting tapestry of fashion. Here, you'll discover an alluring overview of the latest trends, styles, and what makes fashion genuinely timeless.
 
-![Home Page](screens/home01.jpg)
-![Home Page](screens/home02.png)
+![Screenshot 2023-10-02 195905](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/e78a15e3-cef1-42cd-8815-4af655996ab6)
+![Screenshot 2023-10-02 200254](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/0cd3ed54-9d8f-4566-bb90-cc169b46bd94)
+
 
 ### 2. Collection Page 🌐
 Prepare to be spellbound by our meticulously curated collection on the Collection Page, where you can explore an array of styles, colors, and sizes. Immerse yourself in detailed descriptions to help you find the perfect fit for your fashion statement.
+**Men Collection**
 
-![Collection Page](screens/collection1.png)
-![Collection Page](screens/collection2.png)
+![Screenshot 2023-10-02 200515](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/70c52218-bdee-45b1-8a35-fafe08e7edc7)
+
+**Women Collection**
+
+![Screenshot 2023-10-02 200707](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/be735734-fe20-4ea6-af97-48cea46e2b30)
 
 ### 3. Pricing Page 💰
 The Pricing Page unveils a treasure trove of pricing options, each meticulously detailed to help you express your style without emptying your wallet.
 
-![Pricing Page](screens/pricing.png)
+![Screenshot 2023-10-02 200948](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/639a6260-8616-4be6-a179-b7345c7d3907)
+
 
 ### 4. Reviews Page 💬
 Your voice is invaluable! The Reviews Page provides a platform for you to share your thoughts, suggestions, and feedback, empowering us to enhance your shopping experience.
@@ -29,7 +35,8 @@ Your voice is invaluable! The Reviews Page provides a platform for you to share 
 ### 5. Login Page 🔐
 For our esteemed registered users, the Login Page serves as your gateway to an exclusive fashion experience. Enter your credentials to unlock a world of features and style.
 
-![Login Page](screens/login.png)
+![Screenshot 2023-10-02 201145](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/073b19cb-c540-4767-b72e-e21ffce633ae)
+
 
 ### 6. Admin Page 🔒
 Reserved for a select few, the Admin Page empowers authorized personnel with administrative tools to oversee user accounts, reviews, and other vital components of our fashionable journey.
