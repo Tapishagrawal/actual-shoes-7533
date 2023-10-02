@@ -13,6 +13,7 @@ import { Payment } from "../components/Payment";
 
 import { SingleProduct } from "../components/SingleProduct";
 import { Cart } from "./Cart";
+import { WishList } from "./WishList";
 
 
 
@@ -26,8 +27,9 @@ export const MainRoutes = () => {
       <Route path="/women" element={<Women/>} />
       <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
       <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
-
+      <Route path={"/wishList"} element={<WishList/>}/>
       <Route path={"/cart"} element={<Cart/>}/>
+
 
       <Route path="/admin" element={
         // <PrivateRoute>
