@@ -12,6 +12,7 @@ import { PrivateRoute } from "../components/PrivateRoute";
 import { Payment } from "../components/Payment";
 
 import { SingleProduct } from "../components/SingleProduct";
+import { Cart } from "./Cart";
 
 
 
@@ -25,6 +26,9 @@ export const MainRoutes = () => {
       <Route path="/women" element={<Women/>} />
       <Route path={"/singleProductMen/:id"} element={<SingleProduct/>}/>
       <Route path={"/singleProductWomen/:id"} element={<SingleProduct/>}/>
+
+      <Route path={"/cart"} element={<Cart/>}/>
+
       <Route path="/admin" element={
         // <PrivateRoute>
           <Admin/>
