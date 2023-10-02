@@ -13,7 +13,7 @@
     padding: 30px 24px;
     position:absolute ;
     top: 0;
-    left: 75rem;
+    left: 91%;
     transition: transform 0.2s linear ;
 }
 .swiper-button-prev:hover{
@@ -38,14 +38,12 @@
     color: #fff;
 } 
 
-
-
 .swiper-button-next{
     margin-top: 1rem;
     padding: 30px 24px;
     position:absolute ;
     top: 0;
-    right: 1.2rem;
+    right: 1%;
     transition: transform 0.2s linear ;
 }
 .swiper-button-next:hover{
@@ -68,4 +66,18 @@
     box-shadow: #f46e0f76 0px 7px 29px 0px;
     background-color: #F46F0F;
     color: #fff;
-}   
+} 
+
+/* @media screen and (max-width:1300px){
+    .swiper-slide{
+        margin-right: -150px !important;
+    }
+} */
+
+/* .swiper-wrapper{
+    gap:-px;
+} */
+/* .swiper-slide{
+    margin-right: 5px !important;
+} */
+

@@ -30,8 +30,7 @@ export default function Slider() {
                 <Swiper
                     onSwiper={setSwiperRef}
                     slidesPerView={4}
-                    centeredSlides={true}
-                    spaceBetween={-200}
+                    centeredSlides={true}   
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className="mySwiper"
