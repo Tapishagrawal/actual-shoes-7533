@@ -1,4 +1,4 @@
-import { SET_DATA_IN_LOCAL, SET_DELETED_DATA_IN_LOCAL, SET_DELETED_WISHLIST_DATA_IN_LOCAL, SET_WISHLIST_DATA_IN_LOCAL } from "../actionType"
+import { SET_DATA_IN_LOCAL, SET_DELETED_DATA_IN_LOCAL, SET_DELETED_WISHLIST_DATA_IN_LOCAL, SET_QUANTITY_IN_LOCAL, SET_WISHLIST_DATA_IN_LOCAL } from "../actionType"
 import { getDataFromLocal } from "./action"
 
 const initState = {
@@ -22,6 +22,9 @@ export const reducer = (state = initState, {type, payload}) =>{
         }
         case SET_DELETED_WISHLIST_DATA_IN_LOCAL:{
             return {...state, wishListData:payload}
+        }
+        case SET_QUANTITY_IN_LOCAL:{
+            return {...state, addCartData:payload}
         }
         default: return state
     }
