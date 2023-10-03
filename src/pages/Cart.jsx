@@ -17,7 +17,7 @@ export const Cart = () => {
   const onToken = (token) => {
     console.log(token);
   }
-  const totalAmount = localCartData.reduce((total,curr)=>total+(curr.price*curr.quantity))
+  const totalAmount = localCartData.reduce((total, curr) => total + (curr.price * curr.quantity),0)
   const handleDeleteCartData = (id) => {
     let existingCartItems = localCartData.filter(data => data.id !== id);
     dispatch(setDeletedDataInLocal("cartData", existingCartItems))
@@ -43,7 +43,7 @@ export const Cart = () => {
                 </Tr>
               </Thead>
               <Tbody>
-                {localCartData.map((product) => (
+                {localCartData?.map((product) => (
                   <Tr>
                     <Td cursor={'pointer'} onClick={() => handleDeleteCartData(product.id)}>
                       <span className='text-lg hover:text-red-600 transition'>
