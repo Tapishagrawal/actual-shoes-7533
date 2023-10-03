@@ -25,7 +25,7 @@ Prepare to be spellbound by our meticulously curated collection on the Collectio
 ### 3. Pricing Page 💰
 The Pricing Page unveils a treasure trove of pricing options, each meticulously detailed to help you express your style without emptying your wallet.
 
-![Screenshot 2023-10-02 200948](https://github.com/Tapishagrawal/actual-shoes-7533/assets/121815825/639a6260-8616-4be6-a179-b7345c7d3907)
+![singlePage](https://github.com/Tapishagrawal/actual-shoes-7533/assets/110096013/5550fd9c-8b90-4f63-a2ea-dfccec746ead)
 
 
 ### 5. Login Page 🔐
@@ -37,7 +37,8 @@ For our esteemed registered users, the Login Page serves as your gateway to an e
 ### 6. Admin Page 🔒
 Reserved for a select few, the Admin Page empowers authorized personnel with administrative tools to oversee user accounts, reviews, and other vital components of our fashionable journey.
 
-![Admin Page](screens/admin.png)
+![adminEditPage](https://github.com/Tapishagrawal/actual-shoes-7533/assets/110096013/9010a1bf-0c4f-4bd4-b24d-4d7e422a683d)
+
 
 ## 🚀 Tech Stacks
 
