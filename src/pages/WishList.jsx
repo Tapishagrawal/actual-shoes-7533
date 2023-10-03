@@ -6,6 +6,7 @@ import { setDataInLocal, setDeletedWishListDataInLocal } from "../redux/localRed
 import { useNavigate } from 'react-router-dom';
 import { toggleAddToCart, toggleWishList } from '../redux/Men/action';
 import { CountContext } from '../Context/CountContextProvider';
+import noData from "../images/noData.svg"
 
 export const WishList = () => {
     const { setWishListCount, setCartCount } = useContext(CountContext);
@@ -24,6 +25,9 @@ export const WishList = () => {
         dispatch(toggleAddToCart(product.id, !product.addToCart))
         product.addToCart = true
         dispatch(setDataInLocal("cartData", product));
+    }
+    if(localWishListData<=0){
+        return <div className='w-[30%] m-auto'><img className='w-full opacity-50' src={noData}/></div> 
     }
     return (
         <>
