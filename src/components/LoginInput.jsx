@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/Authentication/action';
 import { useNavigate } from 'react-router-dom';
+import { LoginPageContext } from '../Context/LoginPageContextProvider';
 
 export const LoginInput = ({ onLogin, onSignup }) => {
   const [username, setUsername] = useState('');
@@ -9,11 +10,14 @@ export const LoginInput = ({ onLogin, onSignup }) => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { setadminAuth } = useContext(LoginPageContext)
 
   const handleLogin = () => {
     const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
     const user = storedUsers.find(u => u.username === username && u.password === password);
-    if(username==="admin@gmail.com" && password==="1234"){
+    if (username === "admin@gmail.com" && password === "1234") {
+      localStorage.setItem("adminAuth", true)
+      setadminAuth(true)
       return navigate("/dashboard")
     }
     if (user) {
@@ -26,7 +30,7 @@ export const LoginInput = ({ onLogin, onSignup }) => {
 
   const handleSignup = () => {
     if (username && password) {
-      onSignup({ username, password,cart:[],whishList:[] });
+      onSignup({ username, password, cart: [], whishList: [] });
       setUsername('');
       setPassword('');
       setError('');
