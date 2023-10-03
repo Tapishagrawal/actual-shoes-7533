@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { Box } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { getProducts, toggleWishList } from "../redux/Women/action";
+import { setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
 
 export const Women = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,12 @@ export const Women = () => {
       price_lte: searchParams.getAll("highPrice"),
     }
   }
+  const handleAddcart = (product) => {
+    dispatch(setDataInLocal("cartData", product))
+  }
+  const handleAddInWishList = (product) => {
+    dispatch(setWishListDataInLocal("wishListData", product))
+  }
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [searchParams]);
@@ -28,7 +35,7 @@ export const Women = () => {
       <Sidebar />
       <Box className="Box-2">
         {products?.length > 0 &&
-          products.map((item) => <ProductCard key={item.id} {...item} />)}
+          products.map((item) => <ProductCard key={item.id} {...item} handleAddcart={handleAddcart} handleAddInWishList={handleAddInWishList} />)}
       </Box>
     </Box>
     </DIV>

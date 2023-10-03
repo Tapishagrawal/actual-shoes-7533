@@ -6,14 +6,14 @@ import { Sidebar } from "./Sidebar";
 import { useSearchParams } from "react-router-dom";
 import { Box } from "@chakra-ui/layout";
 import styled from "styled-components";
-import { getDataFromLocal, setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
+import { setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
 
 export const Men = () => {
   const dispatch = useDispatch();
-  const { products,isLoading } = useSelector((store) => {
+  const { products, isLoading } = useSelector((store) => {
     return {
-      products:store.menReducer.products,
-      isLoading:store.menReducer.isLoading
+      products: store.menReducer.products,
+      isLoading: store.menReducer.isLoading
     }
   });
   const [searchParams] = useSearchParams();
@@ -30,26 +30,26 @@ export const Men = () => {
     dispatch(setDataInLocal("cartData", product))
   }
   const handleAddInWishList = (product) => {
-    dispatch(setWishListDataInLocal("wishListData",product))
+    dispatch(setWishListDataInLocal("wishListData", product))
   }
   useEffect(() => {
     dispatch(getProducts(paramObj));
   }, [searchParams]);
   return (
     <DIV>
-    <Box className="Box-1">
-      <Sidebar />
-      <Box
-        className="Box-2"
-      >
-        {products?.length > 0 &&
-          products.map((item) => <ProductCard key={item.id} isLoading={isLoading} {...item} handleAddcart={handleAddcart} handleAddInWishList={handleAddInWishList}  />)}
+      <Box className="Box-1">
+        <Sidebar />
+        <Box
+          className="Box-2"
+        >
+          {products?.length > 0 &&
+            products.map((item) => <ProductCard key={item.id} isLoading={isLoading} {...item} handleAddcart={handleAddcart} handleAddInWishList={handleAddInWishList} />)}
+        </Box>
       </Box>
-    </Box>
     </DIV>
   );
 };
-const DIV= styled.div`
+const DIV = styled.div`
 .Box-1{
   display:flex;
 }

@@ -2,22 +2,20 @@ import React from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
-import { setDeletedDataInLocal, setWishListDataInLocal } from '../redux/localReducer/action'
+import { setDeletedDataInLocal, setUpdatedQuantity, setWishListDataInLocal } from '../redux/localReducer/action'
 import { useNavigate } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout';
 import { Box, Button, Grid, GridItem, HStack, Heading, Image, Table, TableContainer, Tag, TagLabel, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
-import { Link as ReactRouterLink } from 'react-router-dom'
-import { Link as ChakraLink } from '@chakra-ui/react'
+import ban2 from "../images/banner/ban-2.jpg"
 
 export const Cart = () => {
   const localCartData = useSelector((store) => store.localReducer.addCartData);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
 
   const onToken = (token) => {
     console.log(token);
   }
-  const totalAmount = localCartData.reduce((total, curr) => total + (curr.price * curr.quantity),0)
+  const totalAmount = localCartData.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
   const handleDeleteCartData = (id) => {
     let existingCartItems = localCartData.filter(data => data.id !== id);
     dispatch(setDeletedDataInLocal("cartData", existingCartItems))
@@ -25,9 +23,34 @@ export const Cart = () => {
   const handleAddInWishList = (data) => {
     dispatch(setWishListDataInLocal("wishListData", data))
   }
+  const handleIncrement = (id) => {
+    const updatedData = localCartData.map((product) => {
+      if (product.id === id) {
+        return { ...product, quantity: product.quantity + 1 };
+      }
+      return product;
+    });
+    dispatch(setUpdatedQuantity("cartData", updatedData))
+  }
+  const handleDecrement = (id) =>{
+    const updatedData = localCartData.map((product) => {
+      if (product.id === id) {
+        return { ...product, quantity: product.quantity - 1 };
+      }
+      return product;
+    });
+    dispatch(setUpdatedQuantity("cartData", updatedData))
+  }
   return (
     <>
-      <Grid templateColumns={'repeat(5, 1fr)'} gap={2} mt={2}>
+      <div className='h-[220px] overflow-hidden relative'>
+        <img src={ban2} alt="Poster" />
+        <div className="absolute text-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+          <h1 className=" text-white text-3xl font-bold ">YOU MAKE US SPACIAL</h1>
+          <p className=" text-white text-sm font-normal">Clothly as unique as you are!</p>
+        </div>
+      </div>
+      <Grid templateColumns={'repeat(5, 1fr)'} gap={2} mt={10}>
         <GridItem colSpan={4}>
           <TableContainer bg={"#fff"} borderRadius={2} boxShadow={"rgba(0, 0, 0, 0.16) 0px 1px 4px"} w={"95%"} m={'auto'}>
             <Heading margin={5} color={'black'} borderBottom={"1px solid #3333"}>CART</Heading>
@@ -44,7 +67,7 @@ export const Cart = () => {
               </Thead>
               <Tbody>
                 {localCartData?.map((product) => (
-                  <Tr>
+                  <Tr key={product.id}>
                     <Td cursor={'pointer'} onClick={() => handleDeleteCartData(product.id)}>
                       <span className='text-lg hover:text-red-600 transition'>
                         <MdDeleteOutline />
@@ -69,7 +92,7 @@ export const Cart = () => {
                             color: "HSL(143, 72%, 46%)"
                           }}
                           p={3}
-
+                          onClick={() => handleIncrement(product.id)}
                           fontSize={18}
                         >+</Button>
 
@@ -89,7 +112,7 @@ export const Cart = () => {
                           }}
                           isDisabled={product.quantity <= 1}
                           p={3}
-
+                          onClick={() => handleDecrement(product.id)}
                           fontSize={18}
                         >-</Button>
                       </Tag>
@@ -132,7 +155,7 @@ export const Cart = () => {
                     panelLabel='Make Payment'
                     stripeKey="pk_test_51NwN46SGSe6lG6bP83Rmf9aDMMwLbBRj4acZBi8TEAmneEox9pW5vKXTUMMY8y6X9uo6DKasYylIv4v6s9QD2K8l00kalH5AX2"
                   >
-                    <button className='bg-black hover:bg-yellow-600 text-white w-[200px] transition duration-500 py-2 rounded-sm'>PLACE ORDER</button>
+                    <button disabled={localCartData.length <= 0} className={`bg-black cursor-no-drop hover:bg-yellow-600 text-white w-[200px] transition duration-500 py-2 rounded-sm`}>PLACE ORDER</button>
                   </StripeCheckout>
                 </Box>
               </VStack>
