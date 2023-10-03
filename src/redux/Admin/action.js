@@ -18,7 +18,7 @@ export const addProducts = (data) => (dispatch) => {
 }
 
 export const getAdminpro = (dispatch) => {
-    dispatch({ type: GET_PROD_REQUEST})
+    dispatch({ type: GET_PROD_REQUEST })
     axios.get(`https://platecrafters-moke-api.onrender.com/allProducts`)
         .then((res) => {
             // console.log(res.data)
@@ -46,16 +46,13 @@ export const delet_prod = (id) => (dispatch) => {
 }
 
 export const edit_product = (id, newData) => (dispatch) => {
-
     dispatch({ type: GET_PROD_REQUEST })
-
     axios.patch(`https://platecrafters-moke-api.onrender.com/allProducts/${id}`, newData).then((res) => {
-
-        //   console.log(res.data)
-        dispatch({ type: PATCH_PROD_SUCC })
-
-    }).catch((err) => {
-        dispatch({ type: GET_PROD_FAIL })
+        dispatch({ type: PATCH_PROD_SUCC})
+        dispatch(getAdminpro);
     })
+        .catch((err) => {
+            dispatch({ type: GET_PROD_FAIL })
+        })
 
 }

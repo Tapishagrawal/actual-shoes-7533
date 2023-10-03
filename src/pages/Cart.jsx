@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout';
 import { Box, Button, Grid, GridItem, HStack, Heading, Image, Table, TableContainer, Tag, TagLabel, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
 import ban2 from "../images/banner/ban-2.jpg"
+import { toggleAddToCart } from '../redux/Men/action'
 
 export const Cart = () => {
   const localCartData = useSelector((store) => store.localReducer.addCartData);
@@ -16,10 +17,13 @@ export const Cart = () => {
     console.log(token);
   }
   const totalAmount = localCartData.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
-  const handleDeleteCartData = (id) => {
-    let existingCartItems = localCartData.filter(data => data.id !== id);
+
+  const handleDeleteCartData = (product) => {
+    dispatch(toggleAddToCart(product.id, !product.addToCart))
+    let existingCartItems = localCartData.filter(data => data.id !== product.id);
     dispatch(setDeletedDataInLocal("cartData", existingCartItems))
   }
+
   const handleAddInWishList = (data) => {
     dispatch(setWishListDataInLocal("wishListData", data))
   }
@@ -46,7 +50,7 @@ export const Cart = () => {
       <div className='h-[220px] overflow-hidden relative'>
         <img src={ban2} alt="Poster" />
         <div className="absolute text-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-          <h1 className=" text-white text-3xl font-bold ">YOU MAKE US SPACIAL</h1>
+          <h1 className=" text-white text-3xl font-bold ">YOU MAKE US SPECIAL</h1>
           <p className=" text-white text-sm font-normal">Clothly as unique as you are!</p>
         </div>
       </div>
@@ -68,7 +72,7 @@ export const Cart = () => {
               <Tbody>
                 {localCartData?.map((product) => (
                   <Tr key={product.id}>
-                    <Td cursor={'pointer'} onClick={() => handleDeleteCartData(product.id)}>
+                    <Td cursor={'pointer'} onClick={() => handleDeleteCartData(product)}>
                       <span className='text-lg hover:text-red-600 transition'>
                         <MdDeleteOutline />
                       </span>

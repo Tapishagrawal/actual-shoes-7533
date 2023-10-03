@@ -6,10 +6,13 @@ import { Sidebar } from "./Sidebar";
 import { useSearchParams } from "react-router-dom";
 import { Box } from "@chakra-ui/layout";
 import styled from "styled-components";
-import { setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
+import { setDataInLocal, setDeletedDataInLocal, setDeletedWishListDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
 
 export const Men = () => {
   const dispatch = useDispatch();
+  const localCartData = useSelector((store) => store.localReducer.addCartData);
+  const localWishListData = useSelector((store) => store.localReducer.wishListData);
+
   const { products, isLoading } = useSelector((store) => {
     return {
       products: store.menReducer.products,
@@ -26,11 +29,29 @@ export const Men = () => {
     },
   };
 
-  const handleAddcart = (product) => {
-    dispatch(setDataInLocal("cartData", product))
+  const handleDeleteCartData = (product) => {
+    dispatch(toggleAddToCart(product.id, !product.addToCart))
+    let existingCartItems = localCartData.filter(data => data.id !== product.id);
+    dispatch(setDeletedDataInLocal("cartData", existingCartItems))
   }
+
+  const handleAddcart = (product) => {
+    dispatch(toggleAddToCart(product.id, !product.addToCart))
+    product.addToCart = true
+    dispatch(setDataInLocal("cartData", product));
+  }
+
+
   const handleAddInWishList = (product) => {
+    dispatch(toggleWishList(product.id, !product.wishList))
+    product.wishList = true
     dispatch(setWishListDataInLocal("wishListData", product))
+  }
+
+  const handleDeleteWishList = (product) => {
+    dispatch(toggleWishList(product.id, !product.wishList))
+    let existingCartItems = localWishListData.filter(data => data.id !== product.id);
+    dispatch(setDeletedWishListDataInLocal("wishListData", existingCartItems))
   }
   useEffect(() => {
     dispatch(getProducts(paramObj));
@@ -43,7 +64,7 @@ export const Men = () => {
           className="Box-2"
         >
           {products?.length > 0 &&
-            products.map((item) => <ProductCard key={item.id} isLoading={isLoading} {...item} handleAddcart={handleAddcart} handleAddInWishList={handleAddInWishList} />)}
+            products.map((item) => <ProductCard key={item.id} isLoading={isLoading} {...item} handleAddcart={handleAddcart} handleAddInWishList={handleAddInWishList} handleDeleteCartData={handleDeleteCartData} handleDeleteWishList={handleDeleteWishList} />)}
         </Box>
       </Box>
     </DIV>

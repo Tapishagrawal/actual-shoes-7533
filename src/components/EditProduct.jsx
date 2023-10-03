@@ -14,10 +14,8 @@ const EditProduct = () => {
   const dispatch = useDispatch();
 
   const handle_edit = () => {
-    console.log(editData);
     dispatch(edit_product(id, editData));
-
-    nav("/");
+    return nav("/products");
   }
 
   const handle_change = (e) => {
