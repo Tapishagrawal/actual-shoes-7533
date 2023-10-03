@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, toggleAddToCart, toggleWishList } from "../redux/Men/action";
 import { ProductCard } from "./ProductCard";
@@ -7,8 +7,10 @@ import { useSearchParams } from "react-router-dom";
 import { Box } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { setDataInLocal, setDeletedDataInLocal, setDeletedWishListDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
+import { CountContext } from "../Context/CountContextProvider";
 
 export const Men = () => {
+  const { setCartCount, setWishListCount } = useContext(CountContext)
   const dispatch = useDispatch();
   const localCartData = useSelector((store) => store.localReducer.addCartData);
   const localWishListData = useSelector((store) => store.localReducer.wishListData);
@@ -29,26 +31,30 @@ export const Men = () => {
     },
   };
 
-  const handleDeleteCartData = (product) => {
-    dispatch(toggleAddToCart(product.id, !product.addToCart))
-    let existingCartItems = localCartData.filter(data => data.id !== product.id);
-    dispatch(setDeletedDataInLocal("cartData", existingCartItems))
-  }
-
   const handleAddcart = (product) => {
+    setCartCount(prev=>prev+1)
     dispatch(toggleAddToCart(product.id, !product.addToCart))
     product.addToCart = true
     dispatch(setDataInLocal("cartData", product));
   }
 
+  const handleDeleteCartData = (product) => {
+    setCartCount(prev=>prev-1)
+    dispatch(toggleAddToCart(product.id, !product.addToCart))
+    let existingCartItems = localCartData.filter(data => data.id !== product.id);
+    dispatch(setDeletedDataInLocal("cartData", existingCartItems))
+  }
+
 
   const handleAddInWishList = (product) => {
+    setWishListCount(prev=>prev+1)
     dispatch(toggleWishList(product.id, !product.wishList))
     product.wishList = true
     dispatch(setWishListDataInLocal("wishListData", product))
   }
 
   const handleDeleteWishList = (product) => {
+    setWishListCount(prev=>prev-1)
     dispatch(toggleWishList(product.id, !product.wishList))
     let existingCartItems = localWishListData.filter(data => data.id !== product.id);
     dispatch(setDeletedWishListDataInLocal("wishListData", existingCartItems))

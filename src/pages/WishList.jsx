@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { PiBasketBold } from 'react-icons/pi';
 import { MdDeleteOutline } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDataInLocal, setDeletedWishListDataInLocal } from "../redux/localReducer/action"
 import { useNavigate } from 'react-router-dom';
-import { toggleWishList } from '../redux/Men/action';
+import { toggleAddToCart, toggleWishList } from '../redux/Men/action';
+import { CountContext } from '../Context/CountContextProvider';
 
 export const WishList = () => {
+    const { setWishListCount, setCartCount } = useContext(CountContext);
     const localWishListData = useSelector((store) => store.localReducer.wishListData);
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
     const handleDeleteWishList = (product) => {
+        setWishListCount(prev => prev - 1)
         dispatch(toggleWishList(product.id, !product.wishList))
         let existingCartItems = localWishListData.filter(data => data.id !== product.id);
         dispatch(setDeletedWishListDataInLocal("wishListData", existingCartItems))
     }
-    const handleAddCard = (data) => {
-        dispatch(setDataInLocal("cartData", data))
+    const handleAddCard = (product) => {
+        setCartCount(prev => prev + 1)
+        dispatch(toggleAddToCart(product.id, !product.addToCart))
+        product.addToCart = true
+        dispatch(setDataInLocal("cartData", product));
     }
     return (
         <>

@@ -8,18 +8,21 @@ import { store } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import LoginPageContextProvider from './Context/LoginPageContextProvider';
+import CountContextProvider from './Context/CountContextProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <LoginPageContextProvider>
-    <ChakraProvider>
-      <BrowserRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </BrowserRouter>
-    </ChakraProvider>
+    <CountContextProvider>
+      <ChakraProvider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </BrowserRouter>
+      </ChakraProvider>
+    </CountContextProvider>
   </LoginPageContextProvider>
 );
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { MdDeleteOutline } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout';
 import { Box, Button, Grid, GridItem, HStack, Heading, Image, Table, TableContainer, Tag, TagLabel, Tbody, Td, Text, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
 import ban2 from "../images/banner/ban-2.jpg"
-import { toggleAddToCart } from '../redux/Men/action'
+import { toggleAddToCart, toggleWishList } from '../redux/Men/action'
+import { CountContext } from '../Context/CountContextProvider'
 
 export const Cart = () => {
+  const {setCartCount, setWishListCount} = useContext(CountContext)
   const localCartData = useSelector((store) => store.localReducer.addCartData);
   const dispatch = useDispatch();
 
@@ -19,13 +21,17 @@ export const Cart = () => {
   const totalAmount = localCartData.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
 
   const handleDeleteCartData = (product) => {
+    setCartCount(prev=>prev-1)
     dispatch(toggleAddToCart(product.id, !product.addToCart))
     let existingCartItems = localCartData.filter(data => data.id !== product.id);
     dispatch(setDeletedDataInLocal("cartData", existingCartItems))
   }
 
-  const handleAddInWishList = (data) => {
-    dispatch(setWishListDataInLocal("wishListData", data))
+  const handleAddInWishList = (product) => {
+    setWishListCount(prev=>prev+1)
+    dispatch(toggleWishList(product.id, !product.wishList))
+    product.wishList = true
+    dispatch(setWishListDataInLocal("wishListData", product))
   }
   const handleIncrement = (id) => {
     const updatedData = localCartData.map((product) => {

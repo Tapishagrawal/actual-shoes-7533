@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import { FaStar } from "react-icons/fa"
@@ -7,8 +7,11 @@ import { AiOutlineHeart } from "react-icons/ai"
 import ban1 from "../images/banner/ban-1.jpg";
 import NewArrivalSlider from "../components/NewArrivalSlider"
 import { setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
+import { CountContext } from "../Context/CountContextProvider";
+import { toggleAddToCart, toggleWishList } from "../redux/Men/action";
 
 export const SingleProduct = () => {
+  const { setCartCount, setWishListCount } = useContext(CountContext)
   const { id } = useParams();
   const location = useLocation();
   const [Product, setProduct] = useState({});
@@ -22,11 +25,17 @@ export const SingleProduct = () => {
   }
 
   const handleAddcart = (product) => {
-    dispatch(setDataInLocal("cartData", product))
+    setCartCount(prev=>prev+1)
+    dispatch(toggleAddToCart(product.id, !product.addToCart))
+    product.addToCart = true
+    dispatch(setDataInLocal("cartData", product));
   }
 
   const handleAddInWishList = (product) => {
-    dispatch(setWishListDataInLocal("wishListData",product))
+    setWishListCount(prev=>prev+1)
+    dispatch(toggleWishList(product.id, !product.wishList))
+    product.wishList = true
+    dispatch(setWishListDataInLocal("wishListData", product))
   }
 
   useEffect(() => {
