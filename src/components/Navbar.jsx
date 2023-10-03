@@ -6,8 +6,11 @@ import { LoginPageContext } from "../Context/LoginPageContextProvider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts as getWomenProducts } from "../redux/Women/action";
 import { getProducts as getMenProducts } from "../redux/Men/action";
+import { CountContext } from "../Context/CountContextProvider";
 
 export const Navbar = () => {
+  const { wishListCount } = useContext(CountContext)
+  const { cartCount } = useContext(CountContext)
   const [isMobileMenuVisible, setIsMobileMenuVisible] = useState(false)
   const location = useLocation();
   const { handleToggleLoginPage } = useContext(LoginPageContext);
@@ -16,8 +19,6 @@ export const Navbar = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("currentUser")) || null
   );
-  const cardLocalDataCount = useSelector(store => store.localReducer.addCartData).length || 0
-
   const handleChange = (e) => {
     const { value } = e.target;
     setSearch(value);
@@ -64,7 +65,6 @@ export const Navbar = () => {
         <Link to="/women">Women</Link>
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
-        <Link to="/payment">Payment</Link>
       </div>
       <div className="relative min-[900px]:hidden">
         <div className={`flex gap-4 w-[170px] flex-col fixed top-[4.3rem] -right-3 p-1 px-3 shadow-[0px_13px_29px_0px_rgba(100,100,111,0.4)] bg-white h-[100vh] ${isMobileMenuVisible ? "" : "-right-[300px]"} transition-all duration-500`}>
@@ -73,16 +73,15 @@ export const Navbar = () => {
           <Link className="border-b" to="/women">Women</Link>
           <Link className="border-b" to="/accessories">Accessories</Link>
           <Link className="border-b" to="/winter">Winter</Link>
-          {/* <Link to="/payment">Payment</Link> */}
           <Link to="/wishList" className="relative min-[426px]:hidden border-b pb-1">
             <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
-            <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
+            <span className="absolute -top-1 left-4 bg-black text-white px-1 rounded-full text-[0.6rem]">{wishListCount}</span>
           </Link>
 
           <div className="flex items-center gap-1 cursor-pointer min-[426px]:hidden border-b pb-1">
             <Link to="/cart">Cart</Link>
             <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
-              {cardLocalDataCount}
+              {cartCount}
             </span>
           </div>
           <div className="min-[426px]:hidden">
@@ -124,12 +123,12 @@ export const Navbar = () => {
         )}
         <Link to="/wishList" className="relative">
           <AiOutlineHeart className="h-6 w-6 cursor-pointer" />
-          <span className="absolute -top-1 -right-2 bg-black text-white px-1 rounded-full text-[0.6rem]">0</span>
+          <span className="absolute -top-1 -right-2 bg-black text-white px-1 rounded-full text-[0.6rem]">{wishListCount}</span>
         </Link>
         <div className="flex items-center gap-1 cursor-pointer">
           <Link to="/cart">Cart</Link>
           <span className="bg-black text-white p-[0.30rem] px-3 mx-1 rounded-full">
-            {cardLocalDataCount}
+            {cartCount}
           </span>
         </div>
         <div>
