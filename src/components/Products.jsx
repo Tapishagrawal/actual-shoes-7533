@@ -36,8 +36,8 @@ const Products = () => {
               <th className="py-2 px-4 bg-gray-100 border-b" >Category</th>
               <th className="py-2 px-4 bg-gray-100 border-b" >Name</th>
               <th className="py-2 px-4 bg-gray-100 border-b" >Price</th>
-              <th className="py-2 px-4 bg-gray-100 border-b" >Opt</th>
               <th className="py-2 px-4 bg-gray-100 border-b" >Edit</th>
+              <th className="py-2 px-4 bg-gray-100 border-b" >Opt</th>
             </tr>
           </thead>
           <tbody>
