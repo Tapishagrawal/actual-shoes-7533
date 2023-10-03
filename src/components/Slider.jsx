@@ -15,11 +15,23 @@ import "./Slider.css"
 import { Pagination, Navigation } from 'swiper/modules';
 import { useDispatch, useSelector } from 'react-redux';
 import { getSliderData } from '../redux/Slider/action';
+import { useNavigate } from 'react-router-dom';
+import {setWishListDataInLocal, setDataInLocal} from "../redux/localReducer/action"
+
 
 export default function Slider() {
     const [swiperRef, setSwiperRef] = useState(null);
     const products = useSelector(store => store.sliderReducer.sliderProducts)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleAddcart = (product) => {
+        dispatch(setDataInLocal("cartData", product))
+    }
+
+    const handleAddInWishList = (product) => {
+        dispatch(setWishListDataInLocal("wishListData", product))
+    }
 
     useEffect(() => {
         dispatch(getSliderData)
@@ -40,10 +52,10 @@ export default function Slider() {
                         products.slice(0,15).map((product) =>(
                             <SwiperSlide key={product.id}>
                                 <div className='group h-[20.5rem] w-[15rem] relative p-2 border  rounded-md shadow-[0_8px_24px_rgba(149,157,165,0.2)] overflow-hidden'>
-                                    <span className='group absolute bg-white p-2 rounded-full shadow-[0_8px_24px_rgba(149,157,165,0.4)] -right-10 cursor-pointer hover:text-orange-600 group-hover:right-2 transition-all duration-300'>
+                                    <span onClick={()=>handleAddInWishList(product)} className='group absolute bg-white p-2 rounded-full shadow-[0_8px_24px_rgba(149,157,165,0.4)] -right-10 cursor-pointer hover:text-orange-600 group-hover:right-2 transition-all duration-300'>
                                         <AiOutlineHeart />
                                     </span>
-                                    <div className='w-[90%] h-[250px] m-auto overflow-hidden'>
+                                    <div onClick={()=>navigate(`/singleProductWomen/${product.id}`)} className='w-[90%] h-[250px] m-auto overflow-hidden cursor-pointer'>
                                         <img width={"100%"} className='text-center rounded' src={product.image} alt="name" />
                                     </div>
                                     <div className='flex items-center justify-between px-2 mt-2'>
@@ -51,7 +63,7 @@ export default function Slider() {
                                             <p className='font-semibold line-clamp-1'>{product.name}</p>
                                             <p className='font-medium'>&#x20B9;{product.price}</p>
                                         </div>
-                                        <div className='p-2 cursor-pointer rounded-full hover:bg-black hover:text-white transition duration-300 shadow-[0_8px_24px_rgba(149,157,165,0.2)]'>
+                                        <div onClick={()=>handleAddcart(product)} className='p-2 cursor-pointer rounded-full hover:bg-black hover:text-white transition duration-300 shadow-[0_8px_24px_rgba(149,157,165,0.2)]'>
                                             <PiBasketBold />
                                         </div>
                                     </div>

@@ -64,7 +64,7 @@ export const Navbar = () => {
         <Link to="/women">Women</Link>
         <Link to="/accessories">Accessories</Link>
         <Link to="/winter">Winter</Link>
-        {/* <Link to="/payment">Payment</Link> */}
+        <Link to="/payment">Payment</Link>
       </div>
       <div className="relative min-[900px]:hidden">
         <div className={`flex gap-4 w-[170px] flex-col fixed top-[4.3rem] -right-3 p-1 px-3 shadow-[0px_13px_29px_0px_rgba(100,100,111,0.4)] bg-white h-[100vh] ${isMobileMenuVisible ? "" : "-right-[300px]"} transition-all duration-500`}>

@@ -1,15 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
-import styled from "styled-components";
+import { FaStar } from "react-icons/fa"
+import { PiBasketBold } from "react-icons/pi"
+import { AiOutlineHeart } from "react-icons/ai"
+import ban1 from "../images/banner/ban-1.jpg";
+import NewArrivalSlider from "../components/NewArrivalSlider"
+import { setDataInLocal, setWishListDataInLocal } from "../redux/localReducer/action";
 
 export const SingleProduct = () => {
   const { id } = useParams();
   const location = useLocation();
   const [Product, setProduct] = useState({});
-  // console.log(location.pathname)
   const productMen = useSelector((store) => store.menReducer.products);
   const productWomen = useSelector((store) => store.womenReducer.products);
+  const [size,setSize] = useState("");
+  const dispatch = useDispatch()
+
+  const handleChangeSize = (letter) => {
+    setSize(letter)
+  }
+
+  const handleAddcart = (product) => {
+    dispatch(setDataInLocal("cartData", product))
+  }
+
+  const handleAddInWishList = (product) => {
+    dispatch(setWishListDataInLocal("wishListData",product))
+  }
 
   useEffect(() => {
     if (location.pathname == `/singleProductMen/${id}`) {
@@ -22,161 +40,87 @@ export const SingleProduct = () => {
   }, [Product]);
 
   return (
-    <DIV>
-      <div className="main">
-        <div className="img-show">
-          <img
-            src={Product.image}
-            alt=""
-          />
+    <div>
+      <div className="w-full object-contain relative">
+        <img className="w-full" src={ban1} alt="Banner Image" />
+        <div className="absolute text-center top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
+          <h1 className=" text-white text-3xl font-bold ">Shop with # {Product?.brand?.toUpperCase()}</h1>
+          <p className=" text-white text-sm font-normal">Save more with & up to Off!</p>
         </div>
-        <div className="details-show">
-          <h2>{Product.brand}</h2>
-          <p className="p-large">{Product.category}</p>
-          <p className="p-large">₹{Product.price}</p>
-          <div className="btn-sizes">
-            <p>Select Size</p>
-            <button className="mk-cr">S</button>
-            <button className="mk-cr">M</button>
-            <button className="mk-cr">L</button>
-            <button className="mk-br">XL</button>
+      </div>
+      <div className="w-[98%] m-auto mt-10">
+        <div className="flex justify-evenly">
+          <div className="grid grid-cols-2 grid-flow-row gap-2 w-[50%]">
+            <div className="overflow-hidden rounded">
+              <img className="hover:scale-110 transition duration-700 rounded" src={Product.image} alt={Product.name} />
+            </div>
+            <div className="overflow-hidden rounded">
+              <img className="hover:scale-110 transition duration-700 rounded" src={Product.image} alt={Product.name} />
+            </div>
+            <div className="overflow-hidden rounded">
+              <img className="hover:scale-110 transition duration-700 rounded" src={Product.image} alt={Product.name} />
+            </div>
+            <div className="overflow-hidden rounded">
+              <img className="hover:scale-110 transition duration-700 rounded" src={Product.image} alt={Product.name} />
+            </div>
           </div>
-          <div className="add-cart">
-            <button class="button-40" role="button">
-              {" "}
-              👜 ADD TO BAG
-            </button>
-            <p>HANDPICKED STYLES | ASSURED QUALITY</p>
-            <button class="button-40" role="button">
-              ❣️ SAVE TO WISHLIST
-            </button>
-          </div>
-          <div className="product-details">
-            <h3>Product Details</h3>
-            <ul>
-              <li>Fit: Regular Fit</li>
-              <li>Package Contents: 1 {Product.category}</li>
-              <li>Care Instructions: Machine wash</li>
-              <li>Material: Cotton</li>
-              <li>Product Code: 463775643003</li>
-            </ul>
+          <div className="details-show">
+            <div className="border-b border-zinc-400 pb-2">
+              <h2 className="text-2xl font-semibold">{Product.name}</h2>
+              <p className="text-xl text-zinc-500">{Product.brand} {Product.category} Men White & Teal Blue Slim Fit</p>
+              <div className="flex items-center justify-center gap-1 border w-[170px] my-3">
+                <span className="flex items-center gap-1">
+                  4.3 <span className="text-green-600 -mt-1"> <FaStar /></span>
+                </span>
+                <span className="text-slate-500" >| 23.2K Ratings</span>
+              </div>
+            </div>
+            <p className="text-2xl font-semibold mt-3">₹{Product.price} <span className="font-light text-zinc-400">MPR</span><span className="line-through font-light text-zinc-400"> ₹5000</span></p>
+            <p className="text-xs font-bold text-green-600 my-1">inclusive of all taxes</p>
+            <div className="my-5">
+              <p className="text-lg font-medium text-zinc-600">Select Size</p>
+              <div className="flex items-center gap-5 my-2">
+                <button onClick={()=>handleChangeSize("S")} className={`border border-black rounded-full py-3 px-5 font-medium hover:bg-black ${size==="S" && "bg-black text-white"} hover:text-white transition duration-300`}>S</button>
+                <button onClick={()=>handleChangeSize("M")} className={`border border-black rounded-full py-3 px-4 font-medium hover:bg-black ${size==="M" && "bg-black text-white"} hover:text-white transition duration-300`}>M</button>
+                <button onClick={()=>handleChangeSize("L")} className={`border border-black rounded-full py-3 px-5 font-medium hover:bg-black ${size==="L" && "bg-black text-white"} hover:text-white transition duration-300`}>L</button>
+                <button onClick={()=>handleChangeSize("XL")} className={`border border-black rounded-full py-3 px-4 font-medium hover:bg-black ${size==="XL" && "bg-black text-white"} hover:text-white transition duration-300`}>XL</button>
+              </div>
+            </div>
+            <div className="add-cart">
+              <div className="flex items-center gap-2 ">
+                <button onClick={()=>handleAddcart(Product)} className="flex items-center justify-center gap-2 bg-black hover:bg-black/80 text-white w-[200px] transition duration-500 py-2 rounded-sm">
+                  <span className="text-xl"><PiBasketBold /></span> ADD TO CART
+                </button>
+                <button onClick={()=>handleAddInWishList(Product)} className="flex items-center justify-center gap-2 border border-black hover:bg-black hover:text-white transition duration-500 w-[200px] py-2 rounded-sm">
+                  <span className="text-xl"><AiOutlineHeart /></span>WISHLIST
+                </button>
+              </div>
+              <p className="my-5 text-xl text-yellow-400">HANDPICKED STYLES | ASSURED QUALITY</p>
+            </div>
+            <div className="mb-5 border-y py-2">
+              <p className="text-base font-semibold">₹{Product.price} <span className="line-through font-light text-zinc-400 ml-1"> ₹5000</span>
+                <span className="text-orange-400 font-medium"> (40% OFF)</span>
+              </p>
+              <p className="text-red-500 font-semibold text-base">
+                <span className="text-black font-normal">Seller:</span> {Product.brand}
+              </p>
+            </div>
+            <div>
+              <ul>
+                <li className="my-2"><span className="font-semibold">Fit:</span> Regular Fit</li>
+                <li className="my-2"><span className="font-semibold">Package Contents:</span> 1 {Product.category}</li>
+                <li className="my-2"><span className="font-semibold">Care Instructions:</span> Machine wash</li>
+                <li className="my-2"><span className="font-semibold">Material:</span> Cotton</li>
+                <li className="my-2"><span className="font-semibold">Product Code:</span> 463775643003</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </DIV>
+      <div className='mt-20'>
+        <h1 className='-mb-20 ml-10 text-[1.4rem] sm:text-4xl font-bold '>NEW ARRIVALS</h1>
+        <NewArrivalSlider />
+      </div>
+    </div>
   );
 };
-const DIV = styled.div`
-  .main {
-    display: flex;
-    justify-content: center;
-    width: 60%;
-    margin: auto;
-    margin-top: 20px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  }
-  .details-show {
-    text-align: center;
-    padding: 20px;
-    padding-left: 40px;
-  }
-  .p-large {
-    font-size: larger;
-    margin: 5px;
-  }
-  .mk-br {
-    background-color: white;
-    border-radius: 50px;
-    padding: 11px;
-    border: 0.5px solid lightgray;
-    margin: 5px;
-  }
-  .mk-br:hover {
-    color: white;
-    background-color: gray;
-  }
-
-  .mk-cr {
-    background-color: white;
-    border-radius: 50px;
-    padding: 11px 15px;
-    border: 0.5px solid lightgray;
-    margin: 5px;
-  }
-  .mk-cr:hover {
-    color: white;
-    background-color: gray;
-  }
-  .add-cart button {
-    width: 300px;
-    padding: 10px;
-    background-color: rgb(240, 185, 85);
-    border-color: #edbf69;
-    margin-top: 20px;
-    font-size: large;
-    color: white;
-  }
-  h2 {
-    font-weight: normal;
-    color: #edbf69;
-    margin-bottom: 5px;
-  }
-  #btn-nonclr {
-    background-color: white;
-    border-color: rgb(237, 188, 98);
-    color: rgb(237, 188, 98);
-    font-size: large;
-  }
-  .add-cart p {
-    font-size: smaller;
-    margin-top: 4px;
-    color: rgb(194, 161, 161);
-  }
-  .product-details {
-    text-align: left;
-  }
-  /* CSS */
-  .button-40 {
-    background-color: #111827;
-    border: 1px solid transparent;
-    border-radius: 0.75rem;
-    box-sizing: border-box;
-    color: #ffffff;
-    cursor: pointer;
-    flex: 0 0 auto;
-    font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.5rem;
-    padding: 0.75rem 1.2rem;
-    text-align: center;
-    text-decoration: none #6b7280 solid;
-    text-decoration-thickness: auto;
-    transition-duration: 0.2s;
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    width: auto;
-  }
-
-  .button-40:hover {
-    background-color: #374151;
-  }
-
-  .button-40:focus {
-    box-shadow: none;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  @media (min-width: 768px) {
-    .button-40 {
-      padding: 0.75rem 1.5rem;
-    }
-  }
-`;
