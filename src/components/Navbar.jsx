@@ -19,7 +19,7 @@ export const Navbar = () => {
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("currentUser")) || null
   );
-  const { adminAuth, setadminAuth } = useContext(LoginPageContext)
+  const { adminAuth, setadminAuth, setSinglUser, singlUser } = useContext(LoginPageContext)
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -151,7 +151,7 @@ export const Navbar = () => {
           </span>
         </div>
         <div>
-          {user ? (
+          {singlUser ? (
             <button
               onClick={handleLogout}
               className="bg-black text-white px-3 py-1 rounded"
